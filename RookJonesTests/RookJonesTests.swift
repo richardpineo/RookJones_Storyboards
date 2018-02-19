@@ -21,16 +21,36 @@ class RookJonesTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testLoad() {
+        let boardData: Array<String> = [
+            "----------",
+            "-R  -    O",
+            "--      --",
+            "-   R-   -",
+            "-    R-R -",
+            "-     R- -",
+            "-   -R   -",
+            "- R---R  -",
+            "- -----  -",
+            "-  *-rx --",
+            "------- R-",
+            "-  ---R  -",
+            "-   -R   -",
+            "- R      -",
+            "- R --  R-",
+            "-   R    -",
+            "- -   - --",
+            "J - -    -",
+            "----------"
+        ];
+        
+        do {
+            let board = try BoardFromAscii(boardData)
+            XCTAssertEqual(board.numRows, 19)
+            XCTAssertEqual(board.numCols, 10)
+        }
+        catch {
+            XCTFail("Exception caught")
         }
     }
-    
 }

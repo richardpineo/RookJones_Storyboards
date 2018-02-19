@@ -19,7 +19,7 @@ func TileTypeFromChar(_ c: Character) throws -> TileType {
         return TileType.LockedDoor
     case "R":
         return TileType.WhiteRook
-    case "R":
+    case "r":
         return TileType.BlackRook
     case "*":
         return TileType.Key
@@ -32,10 +32,7 @@ func TileTypeFromChar(_ c: Character) throws -> TileType {
     }
 }
 
-func FromJSON(data: [String: Any]) throws -> Board {
-    guard let boardData = data["Board"] as? Array<String> else {
-        throw BoardError.invalidBoardFile("JSON property 'Board' not found");
-    }
+func BoardFromAscii(_ boardData: Array<String>) throws -> Board {
     let numRows = boardData.count;
     if(numRows == 0) {
         throw BoardError.invalidBoardFile("No rows round");
@@ -48,10 +45,10 @@ func FromJSON(data: [String: Any]) throws -> Board {
         }
     }
     let board = try Board(numRows: numRows, numCols: numCols)
-    for col in 0...(numCols-1) {
-        let rowData = boardData[col];
-        for row in 0...numRows-1 {
-            let char = rowData[rowData.index(rowData.startIndex, offsetBy: row)]
+    for row in 0...numRows-1 {
+        let rowData = boardData[row];
+        for col in 0...numCols-1 {
+            let char = rowData[rowData.index(rowData.startIndex, offsetBy: col)]
             let type = try TileTypeFromChar(char)
             try board.SetTileType(row: row, col: col, tile: type)
         }

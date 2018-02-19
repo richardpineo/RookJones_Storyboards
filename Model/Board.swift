@@ -13,8 +13,8 @@ class Board {
     
     //MARK: Properties
     
-    var numRows: Int
-    var numCols: Int
+    let numRows: Int
+    let numCols: Int
     var tiles: Array<TileType>
 
     //MARK: Initialization
