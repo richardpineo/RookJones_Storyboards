@@ -16,6 +16,9 @@
 		BF903FFC203A49980087F961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF903FFB203A49980087F961 /* Assets.xcassets */; };
 		BF903FFF203A49980087F961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF903FFD203A49980087F961 /* LaunchScreen.storyboard */; };
 		BF90400A203A49980087F961 /* RookJonesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF904009203A49980087F961 /* RookJonesTests.swift */; };
+		BF904015203A66020087F961 /* Herculanum.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF904014203A66020087F961 /* Herculanum.ttf */; };
+		BF904019203A6CBB0087F961 /* Board.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF904018203A6CBB0087F961 /* Board.sks */; };
+		BF90401D203A74890087F961 /* BoardSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF90401C203A74890087F961 /* BoardSet.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,9 @@
 		BF904005203A49980087F961 /* RookJonesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RookJonesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF904009203A49980087F961 /* RookJonesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RookJonesTests.swift; sourceTree = "<group>"; };
 		BF90400B203A49980087F961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF904014203A66020087F961 /* Herculanum.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Herculanum.ttf; path = ../../../../../../Library/Fonts/Herculanum.ttf; sourceTree = "<group>"; };
+		BF904018203A6CBB0087F961 /* Board.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Board.sks; sourceTree = "<group>"; };
+		BF90401C203A74890087F961 /* BoardSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardSet.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,11 +91,14 @@
 			children = (
 				BF903FEE203A49980087F961 /* AppDelegate.swift */,
 				BF903FF0203A49980087F961 /* GameScene.sks */,
+				BF904014203A66020087F961 /* Herculanum.ttf */,
 				BF903FF2203A49980087F961 /* Actions.sks */,
 				BF903FF4203A49980087F961 /* GameScene.swift */,
+				BF904018203A6CBB0087F961 /* Board.sks */,
 				BF903FF6203A49980087F961 /* GameViewController.swift */,
 				BF903FF8203A49980087F961 /* Main.storyboard */,
 				BF903FFB203A49980087F961 /* Assets.xcassets */,
+				BF90401C203A74890087F961 /* BoardSet.sks */,
 				BF903FFD203A49980087F961 /* LaunchScreen.storyboard */,
 				BF904000203A49980087F961 /* Info.plist */,
 			);
@@ -188,11 +197,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF904019203A6CBB0087F961 /* Board.sks in Resources */,
+				BF904015203A66020087F961 /* Herculanum.ttf in Resources */,
 				BF903FFA203A49980087F961 /* Main.storyboard in Resources */,
 				BF903FF1203A49980087F961 /* GameScene.sks in Resources */,
 				BF903FFC203A49980087F961 /* Assets.xcassets in Resources */,
 				BF903FFF203A49980087F961 /* LaunchScreen.storyboard in Resources */,
 				BF903FF3203A49980087F961 /* Actions.sks in Resources */,
+				BF90401D203A74890087F961 /* BoardSet.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +378,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WE3Z3S3MCF;
 				INFOPLIST_FILE = RookJones/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pineo.RookJones;
@@ -380,6 +393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WE3Z3S3MCF;
 				INFOPLIST_FILE = RookJones/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pineo.RookJones;
