@@ -19,6 +19,11 @@
 		BF904015203A66020087F961 /* Herculanum.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF904014203A66020087F961 /* Herculanum.ttf */; };
 		BF904019203A6CBB0087F961 /* Board.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF904018203A6CBB0087F961 /* Board.sks */; };
 		BF90401D203A74890087F961 /* BoardSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF90401C203A74890087F961 /* BoardSet.sks */; };
+		BF97C0FE203A90A500378C7F /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C0FD203A90A500378C7F /* Board.swift */; };
+		BF97C100203A918E00378C7F /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C0FF203A918E00378C7F /* TileType.swift */; };
+		BF97C103203A9C2300378C7F /* Level1.json in Resources */ = {isa = PBXBuildFile; fileRef = BF97C102203A9C2300378C7F /* Level1.json */; };
+		BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C104203AA03E00378C7F /* BoardLoader.swift */; };
+		BF97C107203AA12100378C7F /* BoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C106203AA12100378C7F /* BoardError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,11 @@
 		BF904014203A66020087F961 /* Herculanum.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Herculanum.ttf; path = ../../../../../../Library/Fonts/Herculanum.ttf; sourceTree = "<group>"; };
 		BF904018203A6CBB0087F961 /* Board.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Board.sks; sourceTree = "<group>"; };
 		BF90401C203A74890087F961 /* BoardSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardSet.sks; sourceTree = "<group>"; };
+		BF97C0FD203A90A500378C7F /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		BF97C0FF203A918E00378C7F /* TileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileType.swift; sourceTree = "<group>"; };
+		BF97C102203A9C2300378C7F /* Level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level1.json; sourceTree = "<group>"; };
+		BF97C104203AA03E00378C7F /* BoardLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLoader.swift; sourceTree = "<group>"; };
+		BF97C106203AA12100378C7F /* BoardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,8 @@
 		BF903FE2203A49980087F961 = {
 			isa = PBXGroup;
 			children = (
+				BF97C101203A977C00378C7F /* Levels */,
+				BF97C0F9203A902200378C7F /* Model */,
 				BF903FED203A49980087F961 /* RookJones */,
 				BF904008203A49980087F961 /* RookJonesTests */,
 				BF903FEC203A49980087F961 /* Products */,
@@ -112,6 +124,25 @@
 				BF90400B203A49980087F961 /* Info.plist */,
 			);
 			path = RookJonesTests;
+			sourceTree = "<group>";
+		};
+		BF97C0F9203A902200378C7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF97C0FD203A90A500378C7F /* Board.swift */,
+				BF97C0FF203A918E00378C7F /* TileType.swift */,
+				BF97C104203AA03E00378C7F /* BoardLoader.swift */,
+				BF97C106203AA12100378C7F /* BoardError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF97C101203A977C00378C7F /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				BF97C102203A9C2300378C7F /* Level1.json */,
+			);
+			path = Levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +234,7 @@
 				BF903FF1203A49980087F961 /* GameScene.sks in Resources */,
 				BF903FFC203A49980087F961 /* Assets.xcassets in Resources */,
 				BF903FFF203A49980087F961 /* LaunchScreen.storyboard in Resources */,
+				BF97C103203A9C2300378C7F /* Level1.json in Resources */,
 				BF903FF3203A49980087F961 /* Actions.sks in Resources */,
 				BF90401D203A74890087F961 /* BoardSet.sks in Resources */,
 			);
@@ -224,7 +256,11 @@
 			files = (
 				BF903FF5203A49980087F961 /* GameScene.swift in Sources */,
 				BF903FF7203A49980087F961 /* GameViewController.swift in Sources */,
+				BF97C100203A918E00378C7F /* TileType.swift in Sources */,
+				BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */,
+				BF97C0FE203A90A500378C7F /* Board.swift in Sources */,
 				BF903FEF203A49980087F961 /* AppDelegate.swift in Sources */,
+				BF97C107203AA12100378C7F /* BoardError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
