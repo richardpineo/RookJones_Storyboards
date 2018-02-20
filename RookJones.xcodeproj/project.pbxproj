@@ -50,7 +50,7 @@
 		BF904005203A49980087F961 /* RookJonesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RookJonesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF904009203A49980087F961 /* RookJonesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RookJonesTests.swift; sourceTree = "<group>"; };
 		BF90400B203A49980087F961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF904014203A66020087F961 /* Herculanum.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Herculanum.ttf; path = ../../../../../../Library/Fonts/Herculanum.ttf; sourceTree = "<group>"; };
+		BF904014203A66020087F961 /* Herculanum.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Herculanum.ttf; path = RookJones/Herculanum.ttf; sourceTree = SOURCE_ROOT; };
 		BF904018203A6CBB0087F961 /* Board.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Board.sks; sourceTree = "<group>"; };
 		BF90401C203A74890087F961 /* BoardSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardSet.sks; sourceTree = "<group>"; };
 		BF97C0FD203A90A500378C7F /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
