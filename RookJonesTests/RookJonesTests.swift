@@ -56,12 +56,14 @@ class RookJonesTests: XCTestCase {
     
     func testLoadFromFile() {
         do {
-            let path = Bundle.main.path( forResource: "Level13", ofType: "lvl")
-            let boardDataString = try NSString( contentsOfFile: path!, encoding: String.Encoding.utf8.rawValue)
-            let boardData = String(boardDataString).split( separator: "\n" ).map { String($0) }
-            let board = try BoardFromAscii(boardData)
-            XCTAssertEqual(board.numRows, 19)
-            XCTAssertEqual(board.numCols, 10)
+            let paths = Bundle.main.paths( forResourcesOfType: "lvl", inDirectory: nil )
+            XCTAssertGreaterThan( paths.count, 0 )
+            for path in paths {
+                let boardDataString = try NSString( contentsOfFile: path, encoding: String.Encoding.utf8.rawValue)
+                let boardData = String(boardDataString).split( separator: "\n" ).map { String($0) }
+                let board = try BoardFromAscii(boardData)
+                print("Loaded board (\(board.numRows)x\(board.numCols)) from \((path as NSString).lastPathComponent)")
+            }
         }
         catch {
             XCTFail("Exception caught")
