@@ -23,16 +23,37 @@ class GameScene: SKScene {
 
         self.lastUpdateTime = 0
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//rookJones") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
+        do {
+            // Get label node from scene and store it for use later
+            self.label = self.childNode(withName: "//rookJones") as? SKLabelNode
+            self.label?.alpha = 0.0
+            self.label?.run(SKAction.fadeIn(withDuration: 2.0))
+            
+            let path = Bundle.main.path( forResource: "Level13", ofType: "lvl")
+            let board = try BoardLoader.FromFile( path! )
         
-        // Fill in the board with the scene.
-        self.board = self.childNode(withName: "//board") as? SKTileMapNode
-//        self.board.numberOfColumns = 
+            let tileSet = SKTileSet(named: "Board Tiles")
+            let tileGroups = tileSet?.tileGroups
+            
+            // Fill in the board with the scene.
+            self.board = self.childNode(withName: "//board") as? SKTileMapNode
+            self.board?.numberOfColumns = board.numCols
+            self.board?.numberOfRows = board.numRows
+            
+            for row in 0...board.numRows-1 {
+                for col in 0...board.numCols-1 {
+
+                    let type = try board.GetTileType(row: row, col: col)
+                    let tileName = tileNameForType(type: type, row: row, col: col)
+                    let tile = tileGroups?.first(where: {$0.name == tileName})
+                    self.board?.setTileGroup(tile, forColumn: col, row: row)
+                }
+            }
+ 
+        }
+        catch {
+            self.label?.text = "OH NO"
+        }
         
         // Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.05
@@ -45,6 +66,29 @@ class GameScene: SKScene {
             spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
+        }
+    }
+    
+    private func tileNameForType( type: TileType, row: Int, col: Int ) -> String {
+        switch( type ) {
+        case TileType.RookJones:
+            return "RookJones"
+        case TileType.Empty:
+            return (0 == (row + col) % 2) ? "Black Cell" : "White Cell"
+        case TileType.Wall:
+            return "Wall"
+        case TileType.LockedDoor:
+            return  "Door Locked"
+        case TileType.UnlockedDoor:
+            return "Door Unlocked"
+        case TileType.Key:
+            return "Key"
+        case TileType.WhiteRook:
+            return "White Rook"
+        case TileType.BlackRook:
+            return "Black Rook"
+        case TileType.Exit:
+            return "Exit"
         }
     }
     

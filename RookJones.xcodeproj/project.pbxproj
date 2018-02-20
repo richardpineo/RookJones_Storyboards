@@ -17,8 +17,7 @@
 		BF903FFF203A49980087F961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF903FFD203A49980087F961 /* LaunchScreen.storyboard */; };
 		BF90400A203A49980087F961 /* RookJonesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF904009203A49980087F961 /* RookJonesTests.swift */; };
 		BF904015203A66020087F961 /* Herculanum.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF904014203A66020087F961 /* Herculanum.ttf */; };
-		BF904019203A6CBB0087F961 /* Board.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF904018203A6CBB0087F961 /* Board.sks */; };
-		BF90401D203A74890087F961 /* BoardSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF90401C203A74890087F961 /* BoardSet.sks */; };
+		BF90401D203A74890087F961 /* BoardTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF90401C203A74890087F961 /* BoardTiles.sks */; };
 		BF97C0FE203A90A500378C7F /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C0FD203A90A500378C7F /* Board.swift */; };
 		BF97C100203A918E00378C7F /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C0FF203A918E00378C7F /* TileType.swift */; };
 		BF97C103203A9C2300378C7F /* Level13.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF97C102203A9C2300378C7F /* Level13.lvl */; };
@@ -51,8 +50,7 @@
 		BF904009203A49980087F961 /* RookJonesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RookJonesTests.swift; sourceTree = "<group>"; };
 		BF90400B203A49980087F961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF904014203A66020087F961 /* Herculanum.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Herculanum.ttf; path = RookJones/Herculanum.ttf; sourceTree = SOURCE_ROOT; };
-		BF904018203A6CBB0087F961 /* Board.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Board.sks; sourceTree = "<group>"; };
-		BF90401C203A74890087F961 /* BoardSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardSet.sks; sourceTree = "<group>"; };
+		BF90401C203A74890087F961 /* BoardTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardTiles.sks; sourceTree = "<group>"; };
 		BF97C0FD203A90A500378C7F /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		BF97C0FF203A918E00378C7F /* TileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileType.swift; sourceTree = "<group>"; };
 		BF97C102203A9C2300378C7F /* Level13.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level13.lvl; sourceTree = "<group>"; };
@@ -106,11 +104,10 @@
 				BF904014203A66020087F961 /* Herculanum.ttf */,
 				BF903FF2203A49980087F961 /* Actions.sks */,
 				BF903FF4203A49980087F961 /* GameScene.swift */,
-				BF904018203A6CBB0087F961 /* Board.sks */,
 				BF903FF6203A49980087F961 /* GameViewController.swift */,
 				BF903FF8203A49980087F961 /* Main.storyboard */,
 				BF903FFB203A49980087F961 /* Assets.xcassets */,
-				BF90401C203A74890087F961 /* BoardSet.sks */,
+				BF90401C203A74890087F961 /* BoardTiles.sks */,
 				BF903FFD203A49980087F961 /* LaunchScreen.storyboard */,
 				BF904000203A49980087F961 /* Info.plist */,
 			);
@@ -228,7 +225,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF904019203A6CBB0087F961 /* Board.sks in Resources */,
 				BF904015203A66020087F961 /* Herculanum.ttf in Resources */,
 				BF903FFA203A49980087F961 /* Main.storyboard in Resources */,
 				BF903FF1203A49980087F961 /* GameScene.sks in Resources */,
@@ -236,7 +232,7 @@
 				BF903FFF203A49980087F961 /* LaunchScreen.storyboard in Resources */,
 				BF97C103203A9C2300378C7F /* Level13.lvl in Resources */,
 				BF903FF3203A49980087F961 /* Actions.sks in Resources */,
-				BF90401D203A74890087F961 /* BoardSet.sks in Resources */,
+				BF90401D203A74890087F961 /* BoardTiles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
