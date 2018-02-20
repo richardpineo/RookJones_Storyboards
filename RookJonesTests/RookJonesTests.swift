@@ -45,7 +45,7 @@ class RookJonesTests: XCTestCase {
         ];
         
         do {
-            let board = try BoardFromAscii(boardData)
+            let board = try BoardLoader.FromAscii(boardData)
             XCTAssertEqual(board.numRows, 19)
             XCTAssertEqual(board.numCols, 10)
         }
@@ -59,9 +59,7 @@ class RookJonesTests: XCTestCase {
             let paths = Bundle.main.paths( forResourcesOfType: "lvl", inDirectory: nil )
             XCTAssertGreaterThan( paths.count, 0 )
             for path in paths {
-                let boardDataString = try NSString( contentsOfFile: path, encoding: String.Encoding.utf8.rawValue)
-                let boardData = String(boardDataString).split( separator: "\n" ).map { String($0) }
-                let board = try BoardFromAscii(boardData)
+                let board = try BoardLoader.FromFile(path)
                 print("Loaded board (\(board.numRows)x\(board.numCols)) from \((path as NSString).lastPathComponent)")
             }
         }
