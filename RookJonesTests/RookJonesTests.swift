@@ -53,4 +53,18 @@ class RookJonesTests: XCTestCase {
             XCTFail("Exception caught")
         }
     }
+    
+    func testLoadFromFile() {
+        do {
+            let path = Bundle.main.path( forResource: "Level13", ofType: "lvl")
+            let boardDataString = try NSString( contentsOfFile: path!, encoding: String.Encoding.utf8.rawValue)
+            let boardData = String(boardDataString).split( separator: "\n" ).map { String($0) }
+            let board = try BoardFromAscii(boardData)
+            XCTAssertEqual(board.numRows, 19)
+            XCTAssertEqual(board.numCols, 10)
+        }
+        catch {
+            XCTFail("Exception caught")
+        }
+    }
 }

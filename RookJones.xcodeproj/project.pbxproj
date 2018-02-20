@@ -21,7 +21,7 @@
 		BF90401D203A74890087F961 /* BoardSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF90401C203A74890087F961 /* BoardSet.sks */; };
 		BF97C0FE203A90A500378C7F /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C0FD203A90A500378C7F /* Board.swift */; };
 		BF97C100203A918E00378C7F /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C0FF203A918E00378C7F /* TileType.swift */; };
-		BF97C103203A9C2300378C7F /* Level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = BF97C102203A9C2300378C7F /* Level1.txt */; };
+		BF97C103203A9C2300378C7F /* Level13.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF97C102203A9C2300378C7F /* Level13.lvl */; };
 		BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C104203AA03E00378C7F /* BoardLoader.swift */; };
 		BF97C107203AA12100378C7F /* BoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C106203AA12100378C7F /* BoardError.swift */; };
 /* End PBXBuildFile section */
@@ -55,7 +55,7 @@
 		BF90401C203A74890087F961 /* BoardSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardSet.sks; sourceTree = "<group>"; };
 		BF97C0FD203A90A500378C7F /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		BF97C0FF203A918E00378C7F /* TileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileType.swift; sourceTree = "<group>"; };
-		BF97C102203A9C2300378C7F /* Level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level1.txt; sourceTree = "<group>"; };
+		BF97C102203A9C2300378C7F /* Level13.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level13.lvl; sourceTree = "<group>"; };
 		BF97C104203AA03E00378C7F /* BoardLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLoader.swift; sourceTree = "<group>"; };
 		BF97C106203AA12100378C7F /* BoardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,7 +140,7 @@
 		BF97C101203A977C00378C7F /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				BF97C102203A9C2300378C7F /* Level1.txt */,
+				BF97C102203A9C2300378C7F /* Level13.lvl */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 				BF903FF1203A49980087F961 /* GameScene.sks in Resources */,
 				BF903FFC203A49980087F961 /* Assets.xcassets in Resources */,
 				BF903FFF203A49980087F961 /* LaunchScreen.storyboard in Resources */,
-				BF97C103203A9C2300378C7F /* Level1.txt in Resources */,
+				BF97C103203A9C2300378C7F /* Level13.lvl in Resources */,
 				BF903FF3203A49980087F961 /* Actions.sks in Resources */,
 				BF90401D203A74890087F961 /* BoardSet.sks in Resources */,
 			);

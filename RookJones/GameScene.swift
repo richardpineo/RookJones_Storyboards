@@ -17,6 +17,7 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    private var board : SKTileMapNode?
     
     override func sceneDidLoad() {
 
@@ -30,6 +31,8 @@ class GameScene: SKScene {
         }
         
         // Fill in the board with the scene.
+        self.board = self.childNode(withName: "//board") as? SKTileMapNode
+//        self.board.numberOfColumns = 
         
         // Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.05
