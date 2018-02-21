@@ -53,4 +53,11 @@ class Board {
     func SetTileType(row: Int, col: Int, tile: TileType) throws {
         try self.tiles[self.TileIndex(row: row, col: col)] = tile
     }
+    
+    func AttackedTiles() -> Array<(Int, Int)> {
+        var attacked = Array<(Int, Int)>()
+        attacked.append((1,1))
+        attacked.append((5,5))
+        return attacked;
+    }
 }

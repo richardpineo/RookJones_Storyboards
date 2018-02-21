@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RookJones/GameScene.swift"
-            timestampString = "540892238.717424"
+            timestampString = "540892786.9020571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "initializeTileMaps()"
             landmarkType = "7">
          </BreakpointContent>
@@ -27,11 +27,11 @@
             condition = "pieceTileName != &quot;&quot;"
             continueAfterRunningActions = "No"
             filePath = "RookJones/GameScene.swift"
-            timestampString = "540892238.717844"
+            timestampString = "540892786.902781"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "initalizeTiles()"
             landmarkType = "7">
          </BreakpointContent>
@@ -43,11 +43,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RookJones/GameScene.swift"
-            timestampString = "540892238.718064"
+            timestampString = "540892786.903446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "initializeTileMaps()"
             landmarkType = "7">
          </BreakpointContent>
@@ -123,11 +123,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RookJones/GameScene.swift"
-            timestampString = "540892238.718312"
+            timestampString = "540892786.903978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "updateMovementTiles()"
             landmarkType = "7">
             <Locations>
@@ -171,11 +171,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RookJones/GameScene.swift"
-            timestampString = "540892238.718518"
+            timestampString = "540892786.904438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "updateMovementTiles()"
             landmarkType = "7">
          </BreakpointContent>
@@ -187,23 +187,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RookJones/GameScene.swift"
-            timestampString = "540892238.718722"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "initializeTileMaps()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RookJones/GameScene.swift"
-            timestampString = "540892238.718923"
+            timestampString = "540892786.904875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -219,28 +203,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RookJones/GameScene.swift"
-            timestampString = "540892238.719121"
+            timestampString = "540892786.9053"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "computeMovement()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RookJones/GameScene.swift"
-            timestampString = "540892238.719329"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "computeMovement()"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "initializeTileMaps()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

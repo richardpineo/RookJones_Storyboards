@@ -43,7 +43,8 @@ class GameScene: SKScene {
         initializeLabel()
         initializeTileMaps()
         initalizeTiles()
-        computeMovement()
+        computeAttacked()
+        computeBlocked()
         updateMovementTiles()
     }
     
@@ -160,23 +161,23 @@ class GameScene: SKScene {
         }
     }
     
-    private func computeMovement() {
+    private func computeAttacked() {
         attacked.removeAll()
+        
+        let attackedTiles = self.board!.AttackedTiles()
+        for tile in attackedTiles {
+            attacked.insert(TileIndex.FromBoard(board: self.board!, row: tile.0, col: tile.1 ))
+        }
+    }
+    
+    private func computeBlocked() {
         blocked.removeAll()
         
         for row in 0...self.board!.numRows-1 {
             for col in 0...self.board!.numCols-1 {
-                let tileIndex = TileIndex.FromBoard(board: self.board!, row: row, col: col)
-                
-                // isAttacked will actually be calculated by iterating through the white pieces
-                let isAttacked = ((row + col) % 3 - (row % 2)) == 0
-                if( isAttacked ) {
-                    attacked.insert(tileIndex)
-                }
-                
                 let tileType = self.board!.GetTileType(row: row, col: col)
                 if( GameScene.doesTileBlock(tileType) ) {
-                    blocked.insert(tileIndex)
+                    blocked.insert(TileIndex.FromBoard(board: self.board!, row: row, col: col))
                 }
             }
         }
