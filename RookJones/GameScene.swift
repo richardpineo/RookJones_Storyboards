@@ -67,6 +67,10 @@ class GameScene: SKScene {
         self.pieceTileMap!.numberOfRows = self.board!.numRows
     }
     
+    private func boardToScreen(row: Int, col: Int) -> (row: Int, col: Int) {
+        return (self.board!.numRows - row - 1, col)
+    }
+    
     private func initalizeTiles() {
         // Load the tiles.
         let boardTileSet = SKTileSet(named: "Board Tiles")!
@@ -74,22 +78,17 @@ class GameScene: SKScene {
         
         for row in 0...self.board!.numRows-1 {
             for col in 0...self.board!.numCols-1 {
-                let type: TileType;
-                do {
-                    type = try self.board!.GetTileType(row: row, col: col)
-                }
-                catch {
-                    print("Couldn't get tile type (\(row), \(col))")
-                    type = TileType.Empty;
-                }
+                let type = self.board!.GetTileType(row: row, col: col)
                 
-                let boardTileName = boardTileNameForType(type: type, row: row, col: col)
+                let screen = self.boardToScreen(row: row, col: col)
+                
+                let boardTileName = boardTileNameForType(type: type, row: screen.row, col: screen.col)
                 let boardTile = boardTileSet.tileGroups.first(where: {$0.name == boardTileName})
-                self.boardTileMap!.setTileGroup(boardTile, forColumn: col, row: row)
+                self.boardTileMap!.setTileGroup(boardTile, forColumn: screen.col, row: screen.row)
                 
                 let pieceTileName = pieceTileNameForType(type: type)
                 let pieceTile = pieceTileSet.tileGroups.first(where: {$0.name == pieceTileName})
-                self.pieceTileMap!.setTileGroup(pieceTile, forColumn: col, row: row)
+                self.pieceTileMap!.setTileGroup(pieceTile, forColumn: screen.col, row: screen.row)
             }
         }
     }
@@ -125,6 +124,14 @@ class GameScene: SKScene {
             return "Unlocked"
         default:
             return "";
+        }
+    }
+    
+    private func computeMovement() {
+        for row in 0...self.board!.numRows-1 {
+            for col in 0...self.board!.numCols-1 {
+                let type = self.board!.GetTileType(row: row, col: col)
+            }
         }
     }
     

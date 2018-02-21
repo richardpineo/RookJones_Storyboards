@@ -34,10 +34,24 @@ struct BoardLoader {
             for col in 0...numCols-1 {
                 let char = rowData[rowData.index(rowData.startIndex, offsetBy: col)]
                 let type = try TileTypeFromChar(char)
-                try board.SetTileType(row: numRows - row - 1, col: numCols - col - 1, tile: type)
+                try board.SetTileType(row: row, col: col, tile: type)
             }
         }
         return board;
+    }
+    
+    static func ToAscii(_ board: Board ) throws -> Array<String> {
+        var ascii = Array<String>()
+        for row in 0...board.numRows-1 {
+            var line = "";
+            for col in 0...board.numCols-1 {
+                let type = board.GetTileType(row: row, col: col)
+                let char = try CharFromTileType(type)
+                line.append(char)
+            }
+            ascii.append(line)
+        }
+        return ascii
     }
     
     private static func TileTypeFromChar(_ c: Character) throws -> TileType {
@@ -62,4 +76,28 @@ struct BoardLoader {
             throw BoardError.invalidBoardDefinition("Unknown character found \(c)")
         }
     }
+    
+    private static func CharFromTileType(_ t: TileType) throws -> Character {
+        switch( t ) {
+            case TileType.Empty:
+                return " "
+            case TileType.Wall:
+                return "-"
+            case TileType.LockedDoor:
+                return "x"
+            case TileType.WhiteRook:
+                return "R"
+            case TileType.BlackRook:
+                return "r"
+            case TileType.Key:
+                return "*"
+            case TileType.RookJones:
+                return "J"
+            case TileType.Exit:
+                return "O"
+            default:
+                throw BoardError.invalidBoardDefinition("Unknown type found \(t)")
+        }
+    }
 }
+

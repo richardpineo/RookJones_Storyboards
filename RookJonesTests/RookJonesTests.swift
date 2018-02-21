@@ -46,8 +46,12 @@ class RookJonesTests: XCTestCase {
         
         do {
             let board = try BoardLoader.FromAscii(boardData)
+            let ascii = try BoardLoader.ToAscii(board)
+            XCTAssertEqual(boardData, ascii)
             XCTAssertEqual(board.numRows, 19)
             XCTAssertEqual(board.numCols, 10)
+            XCTAssertEqual(board.GetTileType(row: 17, col: 0), TileType.RookJones)
+            XCTAssertEqual(board.GetTileType(row: 100, col: 1), TileType.Empty)
         }
         catch {
             XCTFail("Exception caught")

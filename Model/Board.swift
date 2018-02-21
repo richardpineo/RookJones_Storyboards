@@ -28,7 +28,6 @@ class Board {
         self.tiles = Array(repeating: TileType.Empty, count: numRows * numCols)
     }
    
-    
     private func NumberCells() -> Int {
         return self.numRows *  self.numCols
     }
@@ -42,8 +41,13 @@ class Board {
         return row + (col * self.numRows)
     }
     
-    func GetTileType(row: Int, col: Int) throws -> TileType {
-        return try self.tiles[self.TileIndex(row: row, col: col)]
+    func GetTileType(row: Int, col: Int) -> TileType {
+        do {
+            return try self.tiles[self.TileIndex(row: row, col: col)]
+        }
+        catch {
+            return TileType.Empty
+        }
     }
     
     func SetTileType(row: Int, col: Int, tile: TileType) throws {

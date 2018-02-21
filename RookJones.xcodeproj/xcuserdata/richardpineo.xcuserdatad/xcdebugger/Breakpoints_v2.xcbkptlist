@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RookJones/GameScene.swift"
-            timestampString = "540885391.568958"
+            timestampString = "540889407.803893"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -27,11 +27,11 @@
             condition = "pieceTileName != &quot;&quot;"
             continueAfterRunningActions = "No"
             filePath = "RookJones/GameScene.swift"
-            timestampString = "540885391.569259"
+            timestampString = "540889407.8042001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "initalizeTiles()"
             landmarkType = "7">
          </BreakpointContent>
@@ -43,12 +43,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RookJones/GameScene.swift"
-            timestampString = "540885391.5694571"
+            timestampString = "540889407.804406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
             landmarkName = "initializeTileMaps()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RookJonesTests/RookJonesTests.swift"
+            timestampString = "540889407.804606"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "testLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RookJonesTests.RookJonesTests.testLoad() -&gt; ()"
+                  moduleName = "RookJonesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/richardpineo/src/swift/RookJones/RookJonesTests/RookJonesTests.swift"
+                  timestampString = "540889001.718271"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "2329">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #7 : @autoclosure () throws -&gt; RookJones.TileType in RookJonesTests.RookJonesTests.testLoad() -&gt; ()"
+                  moduleName = "RookJonesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/richardpineo/src/swift/RookJones/RookJonesTests/RookJonesTests.swift"
+                  timestampString = "540889001.719757"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "14">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RookJonesTests/RookJonesTests.swift"
+            timestampString = "540889407.804656"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "testLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
