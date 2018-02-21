@@ -18,8 +18,11 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var boardTileMap : SKTileMapNode?
     private var pieceTileMap : SKTileMapNode?
+    private var movementTileMap : SKTileMapNode?
     private var board: Board?
-    
+    private var attacked = Set<TileIndex>()
+    private var blocked = Set<TileIndex>()
+
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
@@ -40,6 +43,8 @@ class GameScene: SKScene {
         initializeLabel()
         initializeTileMaps()
         initalizeTiles()
+        computeMovement()
+        updateMovementTiles()
     }
     
     private func loadBoard( _ boardName: String ) throws {
@@ -65,10 +70,11 @@ class GameScene: SKScene {
         self.pieceTileMap = self.childNode(withName: "//pieces") as? SKTileMapNode
         self.pieceTileMap!.numberOfColumns = self.board!.numCols
         self.pieceTileMap!.numberOfRows = self.board!.numRows
-    }
-    
-    private func boardToScreen(row: Int, col: Int) -> (row: Int, col: Int) {
-        return (self.board!.numRows - row - 1, col)
+
+        // Size the movement tile map
+        self.movementTileMap = self.childNode(withName: "//movement") as? SKTileMapNode
+        self.movementTileMap!.numberOfColumns = self.board!.numCols
+        self.movementTileMap!.numberOfRows = self.board!.numRows
     }
     
     private func initalizeTiles() {
@@ -80,19 +86,33 @@ class GameScene: SKScene {
             for col in 0...self.board!.numCols-1 {
                 let type = self.board!.GetTileType(row: row, col: col)
                 
-                let screen = self.boardToScreen(row: row, col: col)
+                let tileIndex = TileIndex.FromBoard(board: self.board!, row: row, col: col)
                 
-                let boardTileName = boardTileNameForType(type: type, row: screen.row, col: screen.col)
+                let boardTileName = boardTileNameForType(type: type, row: tileIndex.row, col: tileIndex.col)
                 let boardTile = boardTileSet.tileGroups.first(where: {$0.name == boardTileName})
-                self.boardTileMap!.setTileGroup(boardTile, forColumn: screen.col, row: screen.row)
+                self.boardTileMap!.setTileGroup(boardTile, forColumn: tileIndex.col, row: tileIndex.row)
                 
                 let pieceTileName = pieceTileNameForType(type: type)
                 let pieceTile = pieceTileSet.tileGroups.first(where: {$0.name == pieceTileName})
-                self.pieceTileMap!.setTileGroup(pieceTile, forColumn: screen.col, row: screen.row)
+                self.pieceTileMap!.setTileGroup(pieceTile, forColumn: tileIndex.col, row: tileIndex.row)
             }
         }
     }
     
+    private func updateMovementTiles() {
+        let movementTiles = SKTileSet(named: "Movement Tiles")!
+        let attackedTile = movementTiles.tileGroups.first(where: {$0.name == "Attacked"})
+        
+        for row in 0...self.board!.numRows-1 {
+            for col in 0...self.board!.numCols-1 {
+                
+                let tileIndex = TileIndex.FromBoard(board: self.board!, row: row, col: col)
+                let tile = attacked.contains(tileIndex) == true ? attackedTile : nil
+                self.movementTileMap!.setTileGroup(tile, forColumn: tileIndex.col, row: tileIndex.row)
+            }
+        }
+    }
+
     private func cellTileName( row: Int, col: Int ) -> String {
         return (0 == (row + col) % 2) ? "Black Cell" : "White Cell"
     }
@@ -127,10 +147,37 @@ class GameScene: SKScene {
         }
     }
     
+    private static func doesTileBlock(_ t: TileType) -> Bool {
+        switch(t) {
+        case TileType.Wall:
+            return true
+        case TileType.LockedDoor:
+            return true
+        case TileType.WhiteRook:
+            return true
+        default:
+            return false
+        }
+    }
+    
     private func computeMovement() {
+        attacked.removeAll()
+        blocked.removeAll()
+        
         for row in 0...self.board!.numRows-1 {
             for col in 0...self.board!.numCols-1 {
-                let type = self.board!.GetTileType(row: row, col: col)
+                let tileIndex = TileIndex.FromBoard(board: self.board!, row: row, col: col)
+                
+                // isAttacked will actually be calculated by iterating through the white pieces
+                let isAttacked = ((row + col) % 3 - (row % 2)) == 0
+                if( isAttacked ) {
+                    attacked.insert(tileIndex)
+                }
+                
+                let tileType = self.board!.GetTileType(row: row, col: col)
+                if( GameScene.doesTileBlock(tileType) ) {
+                    blocked.insert(tileIndex)
+                }
             }
         }
     }

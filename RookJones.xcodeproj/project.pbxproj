@@ -24,6 +24,8 @@
 		BF97C103203A9C2300378C7F /* Level13.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF97C102203A9C2300378C7F /* Level13.lvl */; };
 		BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C104203AA03E00378C7F /* BoardLoader.swift */; };
 		BF97C107203AA12100378C7F /* BoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C106203AA12100378C7F /* BoardError.swift */; };
+		BFE04F8A203D52CF004B1ECE /* TileIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE04F89203D52CF004B1ECE /* TileIndex.swift */; };
+		BFE04F8C203D57AC004B1ECE /* MovementTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		BF97C102203A9C2300378C7F /* Level13.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level13.lvl; sourceTree = "<group>"; };
 		BF97C104203AA03E00378C7F /* BoardLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLoader.swift; sourceTree = "<group>"; };
 		BF97C106203AA12100378C7F /* BoardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardError.swift; sourceTree = "<group>"; };
+		BFE04F89203D52CF004B1ECE /* TileIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileIndex.swift; sourceTree = "<group>"; };
+		BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MovementTiles.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				BF89304E203D238F00D7693B /* PieceTiles.sks */,
 				BF903FFD203A49980087F961 /* LaunchScreen.storyboard */,
 				BF904000203A49980087F961 /* Info.plist */,
+				BFE04F89203D52CF004B1ECE /* TileIndex.swift */,
+				BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */,
 			);
 			path = RookJones;
 			sourceTree = "<group>";
@@ -228,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE04F8C203D57AC004B1ECE /* MovementTiles.sks in Resources */,
 				BF904015203A66020087F961 /* Herculanum.ttf in Resources */,
 				BF903FFA203A49980087F961 /* Main.storyboard in Resources */,
 				BF903FF1203A49980087F961 /* GameScene.sks in Resources */,
@@ -254,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE04F8A203D52CF004B1ECE /* TileIndex.swift in Sources */,
 				BF903FF5203A49980087F961 /* GameScene.swift in Sources */,
 				BF903FF7203A49980087F961 /* GameViewController.swift in Sources */,
 				BF97C100203A918E00378C7F /* TileType.swift in Sources */,
