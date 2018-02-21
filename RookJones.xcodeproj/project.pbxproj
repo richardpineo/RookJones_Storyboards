@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF89304F203D238F00D7693B /* PieceTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF89304E203D238F00D7693B /* PieceTiles.sks */; };
 		BF903FEF203A49980087F961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF903FEE203A49980087F961 /* AppDelegate.swift */; };
 		BF903FF1203A49980087F961 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF903FF0203A49980087F961 /* GameScene.sks */; };
 		BF903FF3203A49980087F961 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF903FF2203A49980087F961 /* Actions.sks */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF89304E203D238F00D7693B /* PieceTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PieceTiles.sks; sourceTree = "<group>"; };
 		BF903FEB203A49980087F961 /* RookJones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RookJones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF903FEE203A49980087F961 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF903FF0203A49980087F961 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				BF903FF8203A49980087F961 /* Main.storyboard */,
 				BF903FFB203A49980087F961 /* Assets.xcassets */,
 				BF90401C203A74890087F961 /* BoardTiles.sks */,
+				BF89304E203D238F00D7693B /* PieceTiles.sks */,
 				BF903FFD203A49980087F961 /* LaunchScreen.storyboard */,
 				BF904000203A49980087F961 /* Info.plist */,
 			);
@@ -232,6 +235,7 @@
 				BF903FFF203A49980087F961 /* LaunchScreen.storyboard in Resources */,
 				BF97C103203A9C2300378C7F /* Level13.lvl in Resources */,
 				BF903FF3203A49980087F961 /* Actions.sks in Resources */,
+				BF89304F203D238F00D7693B /* PieceTiles.sks in Resources */,
 				BF90401D203A74890087F961 /* BoardTiles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,13 +19,13 @@ struct BoardLoader {
     static func FromAscii(_ boardData: Array<String>) throws -> Board {
         let numRows = boardData.count;
         if(numRows == 0) {
-            throw BoardError.invalidBoardFile("No rows round");
+            throw BoardError.invalidBoardDefinition("No rows round");
         }
         let numCols = boardData[0].count;
         for index in 1...(numRows-1) {
             let colCountForRow = boardData[index].count;
             if(numCols != colCountForRow) {
-                throw BoardError.invalidBoardFile("Row \(index) had \(colCountForRow) columns, expected \(numCols)");
+                throw BoardError.invalidBoardDefinition("Row \(index) had \(colCountForRow) columns, expected \(numCols)");
             }
         }
         let board = try Board(numRows: numRows, numCols: numCols)
@@ -59,7 +59,7 @@ struct BoardLoader {
         case "O":
             return TileType.Exit
         default:
-            throw BoardError.invalidBoardFile("Unknown character found \(c)")
+            throw BoardError.invalidBoardDefinition("Unknown character found \(c)")
         }
     }
 }
