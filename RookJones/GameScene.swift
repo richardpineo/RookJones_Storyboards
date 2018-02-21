@@ -18,42 +18,34 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var boardTileMap : SKTileMapNode?
     private var pieceTileMap : SKTileMapNode?
+    private var board: Board?
     
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
         
         // Pass this in from level selection.
-        let board = loadBoard("Level13")
-        if( board == nil ) {
-            return
-        }
-
-        initializeLabel()
-        initializeTileMaps( board! )
-        initalizeTiles( board! )
-    }
-    
-    private func loadBoard( _ boardName: String ) -> Board? {
-        // Pass this in from level selection.
-        let path = Bundle.main.path( forResource: boardName, ofType: "lvl")
-        if( path == nil ) {
-            // handle error
-            return nil;
-        }
-        let board: Board
         do {
-            board = try BoardLoader.FromFile( path! )
+            try loadBoard("Level13")
         }
         catch BoardError.invalidBoardDefinition(let error) {
             // handle error
             print("An error occurred: \(error)")
-            return nil
+            return
         }
         catch {
-            return nil
+            return
         }
-        return board
+
+        initializeLabel()
+        initializeTileMaps()
+        initalizeTiles()
+    }
+    
+    private func loadBoard( _ boardName: String ) throws {
+        // Pass this in from level selection.
+        let path = Bundle.main.path( forResource: boardName, ofType: "lvl")
+        self.board = try BoardLoader.FromFile( path! )
     }
     
     private func initializeLabel() {
@@ -63,31 +55,32 @@ class GameScene: SKScene {
         self.label!.run(SKAction.fadeIn(withDuration: 5.0))
     }
     
-    private func initializeTileMaps( _ board: Board ) {
+    private func initializeTileMaps() {
         // Size the board tile map
         self.boardTileMap = self.childNode(withName: "//board") as? SKTileMapNode
-        self.boardTileMap!.numberOfColumns = board.numCols
-        self.boardTileMap!.numberOfRows = board.numRows
+        self.boardTileMap!.numberOfColumns = self.board!.numCols
+        self.boardTileMap!.numberOfRows = self.board!.numRows
         
         // Size the piece tile map
         self.pieceTileMap = self.childNode(withName: "//pieces") as? SKTileMapNode
-        self.pieceTileMap!.numberOfColumns = board.numCols
-        self.pieceTileMap!.numberOfRows = board.numRows
+        self.pieceTileMap!.numberOfColumns = self.board!.numCols
+        self.pieceTileMap!.numberOfRows = self.board!.numRows
     }
     
-    private func initalizeTiles( _ board: Board ) {
+    private func initalizeTiles() {
         // Load the tiles.
         let boardTileSet = SKTileSet(named: "Board Tiles")!
         let pieceTileSet = SKTileSet(named: "Piece Tiles")!
         
-        for row in 0...board.numRows-1 {
-            for col in 0...board.numCols-1 {
+        for row in 0...self.board!.numRows-1 {
+            for col in 0...self.board!.numCols-1 {
                 let type: TileType;
                 do {
-                    type = try board.GetTileType(row: row, col: col)
+                    type = try self.board!.GetTileType(row: row, col: col)
                 }
                 catch {
-                    return;
+                    print("Couldn't get tile type (\(row), \(col))")
+                    type = TileType.Empty;
                 }
                 
                 let boardTileName = boardTileNameForType(type: type, row: row, col: col)
