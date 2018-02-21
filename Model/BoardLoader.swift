@@ -34,7 +34,7 @@ struct BoardLoader {
             for col in 0...numCols-1 {
                 let char = rowData[rowData.index(rowData.startIndex, offsetBy: col)]
                 let type = try TileTypeFromChar(char)
-                try board.SetTileType(row: row, col: col, tile: type)
+                try board.SetTileType(row: numRows - row - 1, col: numCols - col - 1, tile: type)
             }
         }
         return board;
