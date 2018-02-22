@@ -16,7 +16,7 @@ struct BoardLoader {
         return try BoardLoader.fromAscii(boardData)
     }
 
-    static func fromAscii(_ boardData: Array<String>) throws -> Board {
+    static func fromAscii(_ boardData: [String]) throws -> Board {
         let numRows = boardData.count;
         if(numRows == 0) {
             throw BoardError.invalidBoardDefinition("No rows round");
@@ -41,7 +41,7 @@ struct BoardLoader {
         return board;
     }
     
-    static func toAscii(_ board: Board ) throws -> Array<String> {
+    static func toAscii(_ board: Board ) throws -> [String] {
         var ascii = Array<String>()
         for row in 0...board.numRows-1 {
             var line = "";
