@@ -172,8 +172,7 @@ class GameScene: SKScene {
     
     private func pieceTileNameForType( type: TileType ) -> String {
         switch( type ) {
-        case TileType.RookJones:
-            return "Rook Jones"
+        // case TileType.RookJones: We use an empty tile for this
         case TileType.Key:
             return "Key"
         case TileType.WhiteRook:
@@ -222,7 +221,7 @@ class GameScene: SKScene {
             try self.board!.setTileType(location: old, tileType: TileType.Empty)
             try self.board!.setTileType(location: boardLocation, tileType: TileType.RookJones)
             
-            // too heavy handed but 
+            // too heavy handed but
             // initalizeTiles()
         }
         catch {
