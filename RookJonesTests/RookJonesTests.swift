@@ -45,13 +45,13 @@ class RookJonesTests: XCTestCase {
         ];
         
         do {
-            let board = try BoardLoader.FromAscii(boardData)
-            let ascii = try BoardLoader.ToAscii(board)
+            let board = try BoardLoader.fromAscii(boardData)
+            let ascii = try BoardLoader.toAscii(board)
             XCTAssertEqual(boardData, ascii)
             XCTAssertEqual(board.numRows, 19)
             XCTAssertEqual(board.numCols, 10)
-            XCTAssertEqual(board.GetTileType(row: 17, col: 0), TileType.RookJones)
-            XCTAssertEqual(board.GetTileType(row: 100, col: 1), TileType.Empty)
+            XCTAssertEqual(board.getTileType(Location(17, 0)), TileType.RookJones)
+            XCTAssertEqual(board.getTileType(Location(100, 1)), TileType.Empty)
         }
         catch {
             XCTFail("Exception caught")
@@ -63,7 +63,7 @@ class RookJonesTests: XCTestCase {
             let paths = Bundle.main.paths( forResourcesOfType: "lvl", inDirectory: nil )
             XCTAssertGreaterThan( paths.count, 0 )
             for path in paths {
-                let board = try BoardLoader.FromFile(path)
+                let board = try BoardLoader.fromFile(path)
                 print("Loaded board (\(board.numRows)x\(board.numCols)) from \((path as NSString).lastPathComponent)")
             }
         }

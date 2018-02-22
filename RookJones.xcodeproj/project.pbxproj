@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */; };
 		BF89304F203D238F00D7693B /* PieceTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF89304E203D238F00D7693B /* PieceTiles.sks */; };
 		BF903FEF203A49980087F961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF903FEE203A49980087F961 /* AppDelegate.swift */; };
 		BF903FF1203A49980087F961 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF903FF0203A49980087F961 /* GameScene.sks */; };
@@ -24,7 +25,7 @@
 		BF97C103203A9C2300378C7F /* Level13.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF97C102203A9C2300378C7F /* Level13.lvl */; };
 		BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C104203AA03E00378C7F /* BoardLoader.swift */; };
 		BF97C107203AA12100378C7F /* BoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C106203AA12100378C7F /* BoardError.swift */; };
-		BFE04F8A203D52CF004B1ECE /* TileIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE04F89203D52CF004B1ECE /* TileIndex.swift */; };
+		BFE04F8A203D52CF004B1ECE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE04F89203D52CF004B1ECE /* Location.swift */; };
 		BFE04F8C203D57AC004B1ECE /* MovementTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLogic.swift; sourceTree = "<group>"; };
 		BF89304E203D238F00D7693B /* PieceTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PieceTiles.sks; sourceTree = "<group>"; };
 		BF903FEB203A49980087F961 /* RookJones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RookJones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF903FEE203A49980087F961 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +62,7 @@
 		BF97C102203A9C2300378C7F /* Level13.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level13.lvl; sourceTree = "<group>"; };
 		BF97C104203AA03E00378C7F /* BoardLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLoader.swift; sourceTree = "<group>"; };
 		BF97C106203AA12100378C7F /* BoardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardError.swift; sourceTree = "<group>"; };
-		BFE04F89203D52CF004B1ECE /* TileIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileIndex.swift; sourceTree = "<group>"; };
+		BFE04F89203D52CF004B1ECE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MovementTiles.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +119,6 @@
 				BF89304E203D238F00D7693B /* PieceTiles.sks */,
 				BF903FFD203A49980087F961 /* LaunchScreen.storyboard */,
 				BF904000203A49980087F961 /* Info.plist */,
-				BFE04F89203D52CF004B1ECE /* TileIndex.swift */,
 				BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */,
 			);
 			path = RookJones;
@@ -135,10 +136,12 @@
 		BF97C0F9203A902200378C7F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BFE04F89203D52CF004B1ECE /* Location.swift */,
 				BF97C0FD203A90A500378C7F /* Board.swift */,
 				BF97C0FF203A918E00378C7F /* TileType.swift */,
 				BF97C104203AA03E00378C7F /* BoardLoader.swift */,
 				BF97C106203AA12100378C7F /* BoardError.swift */,
+				BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,8 +264,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFE04F8A203D52CF004B1ECE /* TileIndex.swift in Sources */,
+				BFE04F8A203D52CF004B1ECE /* Location.swift in Sources */,
 				BF903FF5203A49980087F961 /* GameScene.swift in Sources */,
+				BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */,
 				BF903FF7203A49980087F961 /* GameViewController.swift in Sources */,
 				BF97C100203A918E00378C7F /* TileType.swift in Sources */,
 				BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */,

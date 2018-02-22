@@ -13,7 +13,7 @@ enum BoardError: Error {
     case invalidBoardInitialization(numRows: Int, numCols: Int)
     
     // Called when a cell is accessed with row, col outside of bounds of the board.
-    case invalidCell(row: Int, col: Int)
+    case invalidCell(Location)
     
     // The board being loaded contained invalid characteristics such as unknown piece identifiers
     // or an incorrect number of columns for a row.

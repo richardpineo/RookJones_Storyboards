@@ -20,8 +20,8 @@ class GameScene: SKScene {
     private var pieceTileMap : SKTileMapNode?
     private var movementTileMap : SKTileMapNode?
     private var board: Board?
-    private var attacked = Set<TileIndex>()
-    private var blocked = Set<TileIndex>()
+    private var attacked = Set<Location>()
+    private var blocked = Set<Location>()
 
     override func sceneDidLoad() {
 
@@ -48,10 +48,14 @@ class GameScene: SKScene {
         updateMovementTiles()
     }
     
+    private func boardToScreen(_ loc: Location) -> Location {
+        return Location(self.board!.numRows - loc.row - 1, loc.col )
+    }
+    
     private func loadBoard( _ boardName: String ) throws {
         // Pass this in from level selection.
         let path = Bundle.main.path( forResource: boardName, ofType: "lvl")
-        self.board = try BoardLoader.FromFile( path! )
+        self.board = try BoardLoader.fromFile( path! )
     }
     
     private func initializeLabel() {
@@ -85,9 +89,10 @@ class GameScene: SKScene {
         
         for row in 0...self.board!.numRows-1 {
             for col in 0...self.board!.numCols-1 {
-                let type = self.board!.GetTileType(row: row, col: col)
+                let loc = Location(row, col)
+                let type = self.board!.getTileType(loc)
                 
-                let tileIndex = TileIndex.FromBoard(board: self.board!, row: row, col: col)
+                let tileIndex = boardToScreen(loc)
                 
                 let boardTileName = boardTileNameForType(type: type, row: tileIndex.row, col: tileIndex.col)
                 let boardTile = boardTileSet.tileGroups.first(where: {$0.name == boardTileName})
@@ -106,8 +111,8 @@ class GameScene: SKScene {
         
         for row in 0...self.board!.numRows-1 {
             for col in 0...self.board!.numCols-1 {
-                
-                let tileIndex = TileIndex.FromBoard(board: self.board!, row: row, col: col)
+                let loc = Location(row, col)
+                let tileIndex = boardToScreen(loc)
                 let tile = attacked.contains(tileIndex) == true ? attackedTile : nil
                 self.movementTileMap!.setTileGroup(tile, forColumn: tileIndex.col, row: tileIndex.row)
             }
@@ -148,38 +153,19 @@ class GameScene: SKScene {
         }
     }
     
-    private static func doesTileBlock(_ t: TileType) -> Bool {
-        switch(t) {
-        case TileType.Wall:
-            return true
-        case TileType.LockedDoor:
-            return true
-        case TileType.WhiteRook:
-            return true
-        default:
-            return false
-        }
-    }
-    
     private func computeAttacked() {
+        let attackedTiles = BoardLogic.attackedLocations( self.board! )
         attacked.removeAll()
-        
-        let attackedTiles = self.board!.AttackedTiles()
-        for tile in attackedTiles {
-            attacked.insert(TileIndex.FromBoard(board: self.board!, row: tile.0, col: tile.1 ))
+        for loc in attackedTiles {
+            attacked.insert(self.boardToScreen(loc))
         }
     }
     
     private func computeBlocked() {
+        let blockedTiles = BoardLogic.blockedLocations( self.board! )
         blocked.removeAll()
-        
-        for row in 0...self.board!.numRows-1 {
-            for col in 0...self.board!.numCols-1 {
-                let tileType = self.board!.GetTileType(row: row, col: col)
-                if( GameScene.doesTileBlock(tileType) ) {
-                    blocked.insert(TileIndex.FromBoard(board: self.board!, row: row, col: col))
-                }
-            }
+        for loc in blockedTiles {
+            blocked.insert(self.boardToScreen(loc))
         }
     }
     

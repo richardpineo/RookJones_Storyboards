@@ -28,36 +28,29 @@ class Board {
         self.tiles = Array(repeating: TileType.Empty, count: numRows * numCols)
     }
    
-    private func NumberCells() -> Int {
+    private func numberOfTiles() -> Int {
         return self.numRows *  self.numCols
     }
     
     //MARK: Functions
     
-    private func TileIndex(row: Int, col: Int) throws -> Int {
-        if( row < 0 || row >= self.numRows || col < 0 || col >= self.numCols ) {
-            throw BoardError.invalidCell(row: row, col: col)
+    private func arrayIndex(_ loc: Location) throws -> Int {
+        if( loc.row < 0 || loc.row >= self.numRows || loc.col < 0 || loc.col >= self.numCols ) {
+            throw BoardError.invalidCell(loc)
         }
-        return row + (col * self.numRows)
+        return loc.row + (loc.col * self.numRows)
     }
     
-    func GetTileType(row: Int, col: Int) -> TileType {
+    func getTileType(_ loc: Location) -> TileType {
         do {
-            return try self.tiles[self.TileIndex(row: row, col: col)]
+            return try self.tiles[self.arrayIndex(loc)]
         }
         catch {
             return TileType.Empty
         }
     }
     
-    func SetTileType(row: Int, col: Int, tile: TileType) throws {
-        try self.tiles[self.TileIndex(row: row, col: col)] = tile
-    }
-    
-    func AttackedTiles() -> Array<(Int, Int)> {
-        var attacked = Array<(Int, Int)>()
-        attacked.append((1,1))
-        attacked.append((5,5))
-        return attacked;
+    func setTileType(location: Location, tileType: TileType) throws {
+        try self.tiles[self.arrayIndex(location)] = tileType
     }
 }
