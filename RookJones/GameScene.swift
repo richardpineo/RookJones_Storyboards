@@ -201,12 +201,31 @@ class GameScene: SKScene {
         return true;
     }
     
+    /* c = square root(a^2 + b^2)
+     Calculate the distance betwen two points
+     @return linear distance between two CGPoints
+     */
+    func distanceBetweenPoints(a: CGPoint, b: CGPoint) -> CGFloat {
+        return sqrt((b.x - a.x)*(b.x - a.x) + (b.y - a.y)*(b.y - a.y))
+    }
+    // calculate time using the rate * time = distance formula (solve for time)
+    // return a NSTimeInterval to signify time (in seconds as a return value)
+    func timeToTravelDistance(distance: CGFloat, speed: CGFloat) -> TimeInterval {
+        let time = distance / speed
+        return TimeInterval(time)
+    }
+    
     private func moveRookJones(boardLocation: Location) {
 
         self.rookJonesCurrentBoardLocation = boardLocation
         let screenLocation = boardToScreen(boardLocation)
         let targetPoint = screenLocationToPoint(screenLocation)
-        self.rookJones.run(SKAction.move(to: targetPoint, duration:1.0)) {
+        
+        let distance = distanceBetweenPoints(a: targetPoint, b: self.rookJones.position)
+        let playerSpeed: CGFloat = 700  // constant speed
+        let time = timeToTravelDistance(distance: distance, speed: playerSpeed)
+        let move = SKAction.move(to: targetPoint, duration: time)
+        self.rookJones.run(move) {
             // Is this point attacked?
             if( self.attackedScreenLocations.contains(screenLocation) ) {
                 // Rook jones is dead
