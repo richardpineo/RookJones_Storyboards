@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */; };
 		BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */; };
+		BF6B81EE203EAF3900F59317 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BF6B81ED203EAF3900F59317 /* .gitignore */; };
 		BF89304F203D238F00D7693B /* PieceTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF89304E203D238F00D7693B /* PieceTiles.sks */; };
 		BF903FEF203A49980087F961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF903FEE203A49980087F961 /* AppDelegate.swift */; };
 		BF903FF1203A49980087F961 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF903FF0203A49980087F961 /* GameScene.sks */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLogic.swift; sourceTree = "<group>"; };
 		BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		BF6B81ED203EAF3900F59317 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BF89304E203D238F00D7693B /* PieceTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PieceTiles.sks; sourceTree = "<group>"; };
 		BF903FEB203A49980087F961 /* RookJones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RookJones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF903FEE203A49980087F961 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				BF904014203A66020087F961 /* Herculanum.ttf */,
 				BF903FF2203A49980087F961 /* Actions.sks */,
 				BF903FF4203A49980087F961 /* GameScene.swift */,
+				BF6B81ED203EAF3900F59317 /* .gitignore */,
 				BF903FF6203A49980087F961 /* GameViewController.swift */,
 				BF903FF8203A49980087F961 /* Main.storyboard */,
 				BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */,
@@ -241,6 +244,7 @@
 				BF904015203A66020087F961 /* Herculanum.ttf in Resources */,
 				BF903FFA203A49980087F961 /* Main.storyboard in Resources */,
 				BF903FF1203A49980087F961 /* GameScene.sks in Resources */,
+				BF6B81EE203EAF3900F59317 /* .gitignore in Resources */,
 				BF903FFC203A49980087F961 /* Assets.xcassets in Resources */,
 				BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */,
 				BF97C103203A9C2300378C7F /* Level13.lvl in Resources */,
