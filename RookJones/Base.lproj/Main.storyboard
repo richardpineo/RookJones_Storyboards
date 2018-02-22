@@ -71,10 +71,13 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <connections>
+                        <segue destination="tjH-4E-d1M" kind="show" identifier="BackToTitle" id="zwV-mP-4jD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="36"/>
+            <point key="canvasLocation" x="522" y="-167"/>
         </scene>
     </scenes>
     <resources>

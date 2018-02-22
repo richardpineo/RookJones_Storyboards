@@ -14,31 +14,20 @@ class GameScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
-    private var lastUpdateTime : TimeInterval = 0
     private var boardTileMap : SKTileMapNode?
     private var pieceTileMap : SKTileMapNode?
     private var movementTileMap : SKTileMapNode?
     private var board: Board?
-    private var attacked = Set<Location>()
-    private var blocked = Set<Location>()
-
+    private var attackedScreenLocations = Set<Location>()
+    private var blockedScreenLocations = Set<Location>()
+    private var rookJonesIsDead: Bool = false
+    
     // Scene Nodes
     var rookJones: SKSpriteNode!
     
-    // Destination for rookJones
-    var targetBoardLocation: Location = Location(0,0)
+    var rookJonesCurrentBoardLocation: Location = Location(0,0)
     
-    // Values stolen from example project
-    var maxSpeed: CGFloat = 500
-    var acceleration: CGFloat = 0
-    
-    // if within threshold range of the target, rookJones begins slowing
-    let targetThreshold: CGFloat = 100
-
     override func sceneDidLoad() {
-
-        self.lastUpdateTime = 0
-        
         // Pass this in from level selection.
         do {
             try loadBoard("Level13")
@@ -56,14 +45,6 @@ class GameScene: SKScene {
         computeBlocked()
         updateMovementTiles()
         initializeRookJones()
-        printDebugInfo()
-    }
-
-    private func printDebugInfo() {
-        print("Tile size: \(self.boardTileMap!.tileSize)")
-        print("Rook Jones size: \(self.rookJones.size)")
-        print("Tile scale: \(self.boardTileMap!.xScale) x \(self.boardTileMap!.yScale)")
-        print("Rook Jones scale: \(self.rookJones.xScale) x \(self.rookJones.yScale)")
     }
 
     private func boardToScreen(_ loc: Location) -> Location {
@@ -92,13 +73,19 @@ class GameScene: SKScene {
     }
     
     private func initializeRookJones() {
-        guard let rookJones = childNode(withName: "rookJones") as? SKSpriteNode else {
-            fatalError("RookJones not loaded")
+        if( self.rookJones == nil ) {
+            guard let rookJones = childNode(withName: "rookJones") as? SKSpriteNode else {
+                fatalError("RookJones not loaded")
+            }
+            self.rookJones = rookJones
         }
-        self.rookJones = rookJones
-
-        self.targetBoardLocation = rookJonesBoardLocation()
-        self.rookJones.position = screenLocationToPoint( boardToScreen(self.targetBoardLocation) )
+        
+        self.rookJonesIsDead = false
+        self.rookJones.removeAllActions()
+        self.rookJones.run(SKAction.fadeOut(withDuration: 0.0))
+        self.rookJonesCurrentBoardLocation = self.rookJonesBoardLocation()
+        self.rookJones.position = screenLocationToPoint( boardToScreen(self.rookJonesCurrentBoardLocation) )
+        self.rookJones.run(SKAction.fadeIn(withDuration: 1.0))
     }
     
     private func rookJonesBoardLocation() -> Location {
@@ -152,7 +139,7 @@ class GameScene: SKScene {
         
         for loc in self.board!.locations() {
             let tileIndex = boardToScreen(loc)
-            let tile = attacked.contains(tileIndex) == true ? attackedTile : nil
+            let tile = attackedScreenLocations.contains(tileIndex) == true ? attackedTile : nil
             self.movementTileMap!.setTileGroup(tile, forColumn: tileIndex.col, row: tileIndex.row)
         }
     }
@@ -192,17 +179,17 @@ class GameScene: SKScene {
     
     private func computeAttacked() {
         let attackedTiles = BoardLogic.attackedLocations( self.board! )
-        attacked.removeAll()
+        attackedScreenLocations.removeAll()
         for loc in attackedTiles {
-            attacked.insert(self.boardToScreen(loc))
+            attackedScreenLocations.insert(self.boardToScreen(loc))
         }
     }
     
     private func computeBlocked() {
         let blockedTiles = BoardLogic.blockedLocations( self.board! )
-        blocked.removeAll()
+        blockedScreenLocations.removeAll()
         for loc in blockedTiles {
-            blocked.insert(self.boardToScreen(loc))
+            blockedScreenLocations.insert(self.boardToScreen(loc))
         }
     }
     
@@ -215,77 +202,34 @@ class GameScene: SKScene {
     }
     
     private func moveRookJones(boardLocation: Location) {
-        let old = rookJonesBoardLocation()
-        self.targetBoardLocation = boardLocation
-        do {
-            try self.board!.setTileType(location: old, tileType: TileType.Empty)
-            try self.board!.setTileType(location: boardLocation, tileType: TileType.RookJones)
-            
-            // too heavy handed but
-            // initalizeTiles()
-        }
-        catch {
-            // Do nothing
+
+        self.rookJonesCurrentBoardLocation = boardLocation
+        let screenLocation = boardToScreen(boardLocation)
+        let targetPoint = screenLocationToPoint(screenLocation)
+        self.rookJones.run(SKAction.move(to: targetPoint, duration:1.0)) {
+            // Is this point attacked?
+            if( self.attackedScreenLocations.contains(screenLocation) ) {
+                // Rook jones is dead
+                self.rookJonesIsDead = true
+                self.rookJones.run(SKAction.fadeOut(withDuration: 2.0))
+            }
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
+        
+        if( self.rookJonesIsDead ) {
+            // bring him back to life
+            initializeRookJones()
+            return;
+        }
 
         // Set the targetLocation to the destination
         let point = touch.location(in: self)
         let boardLocation = screenToBoard(pointToScreenLocation(point))
-        if(isMoveValid(starting: rookJonesBoardLocation(), possible: boardLocation)) {
+        if(isMoveValid(starting: self.rookJonesCurrentBoardLocation, possible: boardLocation)) {
             moveRookJones(boardLocation: boardLocation)
-        }
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        
-        /*
-        let position = rookJones.position
-        let column = landBackground.tileColumnIndex(fromPosition: position)
-        let row = landBackground.tileRowIndex(fromPosition: position)
-        let tile = landBackground.tileDefinition(atColumn: column, row: row)
-        
-        let objectTile = objectsTileMap.tileDefinition(atColumn: column, row: row)
-        
-        if let _ = objectTile?.userData?.value(forKey: "gascan") {
-            run(gascanSound)
-            objectsTileMap.setTileGroup(nil, forColumn: column, row: row)
-        }
-        
-        if let _ = objectTile?.userData?.value(forKey: "duck") {
-            run(duckSound)
-            objectsTileMap.setTileGroup(nil, forColumn: column, row: row)
-        }
- */
-    }
-    
-    override func didSimulatePhysics() {
-        let targetPoint = screenLocationToPoint(boardToScreen(targetBoardLocation))
-        let offset = CGPoint(x: targetPoint.x - rookJones.position.x, y: targetPoint.y - rookJones.position.y)
-        
-        let distance = sqrt(offset.x * offset.x + offset.y * offset.y)
-        let rookJonesDirection = CGPoint(x:offset.x / distance, y:offset.y / distance)
-        let rookJonesVelocity = CGPoint(x: rookJonesDirection.x * acceleration, y: rookJonesDirection.y * acceleration)
-        
-        rookJones.physicsBody?.velocity = CGVector(dx: rookJonesVelocity.x, dy: rookJonesVelocity.y)
-        
-        if distance < targetThreshold {
-            let delta = targetThreshold - distance
-            acceleration = acceleration * ((targetThreshold - delta)/targetThreshold)
-            if( acceleration < 0.1 ) {
-                self.rookJones.position = targetPoint
-                acceleration = 0
-            }
-        } else {
-            if acceleration > maxSpeed {
-                acceleration -= min(acceleration - maxSpeed, 80)
-            }
-            if acceleration < maxSpeed {
-                acceleration += min(maxSpeed - acceleration, 40)
-            }
         }
     }
 }
