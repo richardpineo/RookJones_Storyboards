@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */; };
+		BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */; };
 		BF89304F203D238F00D7693B /* PieceTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF89304E203D238F00D7693B /* PieceTiles.sks */; };
 		BF903FEF203A49980087F961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF903FEE203A49980087F961 /* AppDelegate.swift */; };
 		BF903FF1203A49980087F961 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF903FF0203A49980087F961 /* GameScene.sks */; };
@@ -16,7 +17,6 @@
 		BF903FF7203A49980087F961 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF903FF6203A49980087F961 /* GameViewController.swift */; };
 		BF903FFA203A49980087F961 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF903FF8203A49980087F961 /* Main.storyboard */; };
 		BF903FFC203A49980087F961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF903FFB203A49980087F961 /* Assets.xcassets */; };
-		BF903FFF203A49980087F961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF903FFD203A49980087F961 /* LaunchScreen.storyboard */; };
 		BF90400A203A49980087F961 /* RookJonesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF904009203A49980087F961 /* RookJonesTests.swift */; };
 		BF904015203A66020087F961 /* Herculanum.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF904014203A66020087F961 /* Herculanum.ttf */; };
 		BF90401D203A74890087F961 /* BoardTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF90401C203A74890087F961 /* BoardTiles.sks */; };
@@ -41,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLogic.swift; sourceTree = "<group>"; };
+		BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BF89304E203D238F00D7693B /* PieceTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PieceTiles.sks; sourceTree = "<group>"; };
 		BF903FEB203A49980087F961 /* RookJones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RookJones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF903FEE203A49980087F961 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		BF903FF6203A49980087F961 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		BF903FF9203A49980087F961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF903FFB203A49980087F961 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BF903FFE203A49980087F961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF904000203A49980087F961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF904005203A49980087F961 /* RookJonesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RookJonesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF904009203A49980087F961 /* RookJonesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RookJonesTests.swift; sourceTree = "<group>"; };
@@ -114,10 +114,10 @@
 				BF903FF4203A49980087F961 /* GameScene.swift */,
 				BF903FF6203A49980087F961 /* GameViewController.swift */,
 				BF903FF8203A49980087F961 /* Main.storyboard */,
+				BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */,
 				BF903FFB203A49980087F961 /* Assets.xcassets */,
 				BF90401C203A74890087F961 /* BoardTiles.sks */,
 				BF89304E203D238F00D7693B /* PieceTiles.sks */,
-				BF903FFD203A49980087F961 /* LaunchScreen.storyboard */,
 				BF904000203A49980087F961 /* Info.plist */,
 				BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */,
 			);
@@ -242,7 +242,7 @@
 				BF903FFA203A49980087F961 /* Main.storyboard in Resources */,
 				BF903FF1203A49980087F961 /* GameScene.sks in Resources */,
 				BF903FFC203A49980087F961 /* Assets.xcassets in Resources */,
-				BF903FFF203A49980087F961 /* LaunchScreen.storyboard in Resources */,
+				BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */,
 				BF97C103203A9C2300378C7F /* Level13.lvl in Resources */,
 				BF903FF3203A49980087F961 /* Actions.sks in Resources */,
 				BF89304F203D238F00D7693B /* PieceTiles.sks in Resources */,
@@ -301,14 +301,6 @@
 				BF903FF9203A49980087F961 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BF903FFD203A49980087F961 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF903FFE203A49980087F961 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
