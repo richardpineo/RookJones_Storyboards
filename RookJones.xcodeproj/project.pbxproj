@@ -26,6 +26,8 @@
 		BF97C103203A9C2300378C7F /* Level13.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF97C102203A9C2300378C7F /* Level13.lvl */; };
 		BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C104203AA03E00378C7F /* BoardLoader.swift */; };
 		BF97C107203AA12100378C7F /* BoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C106203AA12100378C7F /* BoardError.swift */; };
+		BFC6373D203FA46E00E47224 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC6373C203FA46E00E47224 /* Piece.swift */; };
+		BFC63742203FB0F800E47224 /* Rook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC63741203FB0F800E47224 /* Rook.swift */; };
 		BFE04F8A203D52CF004B1ECE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE04F89203D52CF004B1ECE /* Location.swift */; };
 		BFE04F8C203D57AC004B1ECE /* MovementTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,8 @@
 		BF97C102203A9C2300378C7F /* Level13.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level13.lvl; sourceTree = "<group>"; };
 		BF97C104203AA03E00378C7F /* BoardLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLoader.swift; sourceTree = "<group>"; };
 		BF97C106203AA12100378C7F /* BoardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardError.swift; sourceTree = "<group>"; };
+		BFC6373C203FA46E00E47224 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		BFC63741203FB0F800E47224 /* Rook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rook.swift; sourceTree = "<group>"; };
 		BFE04F89203D52CF004B1ECE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MovementTiles.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +143,7 @@
 		BF97C0F9203A902200378C7F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BFC63740203FB0E100E47224 /* Pieces */,
 				BFE04F89203D52CF004B1ECE /* Location.swift */,
 				BF97C0FD203A90A500378C7F /* Board.swift */,
 				BF97C0FF203A918E00378C7F /* TileType.swift */,
@@ -155,6 +160,15 @@
 				BF97C102203A9C2300378C7F /* Level13.lvl */,
 			);
 			path = Levels;
+			sourceTree = "<group>";
+		};
+		BFC63740203FB0E100E47224 /* Pieces */ = {
+			isa = PBXGroup;
+			children = (
+				BFC6373C203FA46E00E47224 /* Piece.swift */,
+				BFC63741203FB0F800E47224 /* Rook.swift */,
+			);
+			path = Pieces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,11 +283,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE04F8A203D52CF004B1ECE /* Location.swift in Sources */,
+				BFC6373D203FA46E00E47224 /* Piece.swift in Sources */,
 				BF903FF5203A49980087F961 /* GameScene.swift in Sources */,
 				BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */,
 				BF903FF7203A49980087F961 /* GameViewController.swift in Sources */,
 				BF97C100203A918E00378C7F /* TileType.swift in Sources */,
 				BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */,
+				BFC63742203FB0F800E47224 /* Rook.swift in Sources */,
 				BF97C0FE203A90A500378C7F /* Board.swift in Sources */,
 				BF903FEF203A49980087F961 /* AppDelegate.swift in Sources */,
 				BF97C107203AA12100378C7F /* BoardError.swift in Sources */,

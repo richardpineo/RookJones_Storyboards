@@ -19,41 +19,24 @@ class BoardLogic {
         
         // Walk through all the pieces and add the attacked locations to the set.
         for loc in board.locations() {
-            
-            let tileType = board.getTileType(loc)
-            switch(tileType) {
-            case TileType.WhiteRook:
-                attacked = attacked.union(getRookAttacks(board: board, rookLocation: loc))
-            default:
-                break;
+            let piece = makePiece(board.getTileType(loc))
+            if( piece != nil ) {
+                attacked = attacked.union(piece!.getAttackLocations(board: board, pieceLocation: loc))
             }
         }
         return Array(attacked)
     }
     
-    private static func getRookAttacks(board: Board, rookLocation: Location) -> [Location] {
-        var attacks = Array<Location>()
-        
-        // Walk in each direction until blocked or off the board
-        let movements = [
-            Location(1, 0),
-            Location(-1, 0),
-            Location(0, 1),
-            Location(0, -1)
-        ]
-        
-        for movement in movements {
-            var loc = rookLocation.offset(movement)
-            while( board.isLocationValid(loc) && !doesTileBlock(board.getTileType(loc))) {
-                attacks.append( loc )
-                loc = loc.offset(movement)
-            }
+    private static func makePiece(_ tileType: TileType) -> Piece? {
+        switch(tileType) {
+        case TileType.WhiteRook:
+            return Rook()
+        default:
+            return nil
         }
-        
-        return attacks
     }
     
-    private static func doesTileBlock(_ tileType: TileType) -> Bool {
+    static func doesTileBlock(_ tileType: TileType) -> Bool {
         switch(tileType) {
         case TileType.Wall:
             return true
