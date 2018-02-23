@@ -220,9 +220,9 @@ class GameScene: SKScene {
     
     private func isMoveValid(starting: Location, possible: Location) -> Bool {
         // Rook jones has the same movement logic as any other rook
-        let rookJones = Rook()
-        let legitMoves = rookJones.getAttackLocations(board: self.board!, pieceLocation: starting)
-        return legitMoves.contains(possible);
+        let rookJones = RookJones(hasKey: self.hasKey, hasAllies: self.hasAllies)
+        var legitMoves = rookJones.getAttackLocations(board: self.board!, pieceLocation: starting)
+                return legitMoves.contains(possible);
     }
     
     /* c = square root(a^2 + b^2)
@@ -270,7 +270,7 @@ class GameScene: SKScene {
     func passTheLevel() {
         // Hooray!
         let scale = CGFloat(256.0)
-        self.rookJones.run(SKAction.scale( by: scale, duration: 4 ) ) {
+        self.rookJones.run(SKAction.scale( by: scale, duration: 3 ) ) {
             NotificationCenter.default.post(Notification( name: Notification.Name(rawValue: "BackToTitle") ))
         }
     }

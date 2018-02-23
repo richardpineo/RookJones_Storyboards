@@ -60,6 +60,8 @@ class BoardLogic {
             return true
         case TileType.WhiteRook:
             return true
+        case TileType.LockedDoor:
+            return true
         default:
             return false
         }

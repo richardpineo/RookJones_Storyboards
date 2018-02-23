@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF26CDE9203FF25C0002EC30 /* TitlePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */; };
 		BF26CDEE203FFC690002EC30 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDED203FFC690002EC30 /* Level.swift */; };
+		BF26CDF0204006640002EC30 /* RookJones.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDEF204006630002EC30 /* RookJones.swift */; };
 		BF3B3348203FEDB2005CDC5F /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */; };
 		BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */; };
 		BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePageViewController.swift; sourceTree = "<group>"; };
 		BF26CDED203FFC690002EC30 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Model/Level.swift; sourceTree = SOURCE_ROOT; };
+		BF26CDEF204006630002EC30 /* RookJones.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RookJones.swift; sourceTree = "<group>"; };
 		BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = "../../temp/Rook Jones App Icon/ios/AppIcon.appiconset"; sourceTree = "<group>"; };
 		BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLogic.swift; sourceTree = "<group>"; };
 		BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				BFC6373C203FA46E00E47224 /* Piece.swift */,
 				BFC63741203FB0F800E47224 /* Rook.swift */,
+				BF26CDEF204006630002EC30 /* RookJones.swift */,
 			);
 			path = Pieces;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				BFE04F8A203D52CF004B1ECE /* Location.swift in Sources */,
 				BFC6373D203FA46E00E47224 /* Piece.swift in Sources */,
 				BF903FF5203A49980087F961 /* GameScene.swift in Sources */,
+				BF26CDF0204006640002EC30 /* RookJones.swift in Sources */,
 				BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */,
 				BF903FF7203A49980087F961 /* GameViewController.swift in Sources */,
 				BF97C100203A918E00378C7F /* TileType.swift in Sources */,
