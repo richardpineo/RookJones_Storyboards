@@ -14,6 +14,11 @@ class Board: Equatable {
     let numCols: Int
     var tiles: Array<TileType>
     
+    convenience init(_ other: Board) throws {
+        try self.init(numRows: other.numRows, numCols: other.numCols)
+        self.tiles = Array( other.tiles )
+    }
+    
     init(numRows: Int, numCols: Int) throws {
         if( numRows == 0 || numCols == 0 ) {
             throw BoardError.invalidBoardInitialization(numRows: numRows, numCols: numCols)

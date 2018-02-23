@@ -17,10 +17,31 @@ class GameScene: SKScene {
     private var boardTileMap : SKTileMapNode?
     private var pieceTileMap : SKTileMapNode?
     private var movementTileMap : SKTileMapNode?
+    
+    // The initial board state, just after loading
+    private var initialBoard: Board?
+    // The current board state with any changes (e.g. picked up a key)
     private var board: Board?
+    // Which screen locations are attacked currently
     private var attackedScreenLocations = Set<Location>()
+    
+    // State variables
     private var rookJonesIsDead: Bool = false
     
+    var hasKey: Bool {
+        get {
+            return _hasKey;
+        }
+        set(hasKey) {
+            self._hasKey = hasKey;
+            guard let keyNode = childNode(withName: "key") as? SKSpriteNode else {
+                fatalError("Key not found")
+            }
+            keyNode.run(hasKey ? SKAction.unhide() : SKAction.hide())
+        }
+    }
+    private var _hasKey: Bool = false
+
     // Scene Nodes
     var rookJones: SKSpriteNode!
     
@@ -38,11 +59,24 @@ class GameScene: SKScene {
             fatalError("Couldn't load board")
         }
 
-        initializeTileMaps()
-        initalizeTiles()
-        computeAttacked()
-        updateMovementTiles()
+        resetBoardToStartingState()
         initializeRookJones()
+    }
+    
+    private func resetBoardToStartingState() {
+        // reset the map
+        do {
+            self.board = try Board(self.initialBoard!)
+        }
+        catch {
+            fatalError("Couldn't copy board")
+        }
+        self.initializeTileMaps()
+        self.updateBoardTilesInScene()
+        self.computeAttacked()
+        self.updateMovementTiles()
+        self.hasKey = false
+        self.rookJonesIsDead = false
     }
 
     private func boardToScreen(_ loc: Location) -> Location {
@@ -67,7 +101,7 @@ class GameScene: SKScene {
     private func loadBoard( _ boardName: String ) throws {
         // Pass this in from level selection.
         let path = Bundle.main.path( forResource: boardName, ofType: "lvl")
-        self.board = try BoardLoader.fromFile( path! )
+        self.initialBoard = try BoardLoader.fromFile( path! )
     }
     
     private func initializeRookJones() {
@@ -78,7 +112,6 @@ class GameScene: SKScene {
             self.rookJones = rookJones
         }
         
-        self.rookJonesIsDead = false
         self.rookJones.removeAllActions()
         self.rookJones.run(SKAction.fadeOut(withDuration: 0.0))
         self.rookJonesCurrentBoardLocation = self.rookJonesBoardLocation()
@@ -111,7 +144,7 @@ class GameScene: SKScene {
         self.movementTileMap!.numberOfRows = self.board!.numRows
     }
     
-    private func initalizeTiles() {
+    private func updateBoardTilesInScene() {
         // Load the tiles.
         let boardTileSet = SKTileSet(named: "Board Tiles")!
         let pieceTileSet = SKTileSet(named: "Piece Tiles")!
@@ -143,7 +176,7 @@ class GameScene: SKScene {
     }
 
     private func cellTileName( row: Int, col: Int ) -> String {
-        return (0 == (row + col) % 2) ? "Black Cell" : "White Cell"
+        return (1 == (row + col) % 2) ? "Black Cell" : "White Cell"
     }
     
     private func boardTileNameForType( type: TileType, row: Int, col: Int ) -> String {
@@ -168,8 +201,6 @@ class GameScene: SKScene {
             return "Exit"
         case TileType.LockedDoor:
             return "Locked"
-        case TileType.UnlockedDoor:
-            return "Unlocked"
         default:
             return "";
         }
@@ -180,6 +211,16 @@ class GameScene: SKScene {
         attackedScreenLocations.removeAll()
         for loc in attackedTiles {
             attackedScreenLocations.insert(self.boardToScreen(loc))
+        }
+    }
+    
+    private func changeBoardTile(boardLocation: Location, tileType: TileType) {
+        do {
+            try self.board!.setTileType(location: boardLocation, tileType: tileType)
+            self.updateBoardTilesInScene()
+            self.computeAttacked()
+        }
+        catch {
         }
     }
     
@@ -219,7 +260,12 @@ class GameScene: SKScene {
             if( self.attackedScreenLocations.contains(screenLocation) ) {
                 // Rook jones is dead
                 self.rookJonesIsDead = true
-                self.rookJones.run(SKAction.fadeOut(withDuration: 2.0))
+                self.rookJones.run(SKAction.fadeOut(withDuration: 1.0))
+            }
+            else if( self.board!.getTileType(boardLocation) == TileType.Key ) {
+                // Pick up the key
+                self.hasKey = true
+                self.changeBoardTile(boardLocation: boardLocation, tileType: TileType.Empty)
             }
         }
     }
@@ -227,15 +273,23 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         
+        // If moving, then don't allow
+        if( self.rookJones.hasActions()) {
+            return;
+        }
+        
         if( self.rookJonesIsDead ) {
             // bring him back to life
-            initializeRookJones()
+            self.resetBoardToStartingState()
             return;
         }
 
         // Set the targetLocation to the destination
         let point = touch.location(in: self)
         let boardLocation = screenToBoard(pointToScreenLocation(point))
+        if( self.board!.getTileType(boardLocation) == TileType.LockedDoor && self.hasKey ) {
+            changeBoardTile(boardLocation: boardLocation, tileType: TileType.Empty)
+        }
         if(isMoveValid(starting: self.rookJonesCurrentBoardLocation, possible: boardLocation)) {
             moveRookJones(boardLocation: boardLocation)
         }

@@ -97,8 +97,6 @@ struct BoardLoader {
                 return "J"
             case TileType.Exit:
                 return "O"
-            default:
-                throw BoardError.invalidBoardDefinition("Unknown type found \(t)")
         }
     }
 }
