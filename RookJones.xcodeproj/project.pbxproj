@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF3B3348203FEDB2005CDC5F /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */; };
 		BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */; };
 		BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */; };
 		BF614CDF203FC6750061B5D7 /* basic.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF614CDE203FC6750061B5D7 /* basic.lvl */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = "../../temp/Rook Jones App Icon/ios/AppIcon.appiconset"; sourceTree = "<group>"; };
 		BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLogic.swift; sourceTree = "<group>"; };
 		BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BF614CDE203FC6750061B5D7 /* basic.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = basic.lvl; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				BF903FF8203A49980087F961 /* Main.storyboard */,
 				BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */,
 				BF903FFB203A49980087F961 /* Assets.xcassets */,
+				BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */,
 				BF90401C203A74890087F961 /* BoardTiles.sks */,
 				BF89304E203D238F00D7693B /* PieceTiles.sks */,
 				BF904000203A49980087F961 /* Info.plist */,
@@ -264,6 +267,7 @@
 				BFC63744203FC2C800E47224 /* Level3.lvl in Resources */,
 				BF904015203A66020087F961 /* Herculanum.ttf in Resources */,
 				BF903FFA203A49980087F961 /* Main.storyboard in Resources */,
+				BF3B3348203FEDB2005CDC5F /* AppIcon.appiconset in Resources */,
 				BF903FF1203A49980087F961 /* GameScene.sks in Resources */,
 				BF6B81EE203EAF3900F59317 /* .gitignore in Resources */,
 				BF903FFC203A49980087F961 /* Assets.xcassets in Resources */,
