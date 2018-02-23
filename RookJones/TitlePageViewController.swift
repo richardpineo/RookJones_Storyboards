@@ -37,7 +37,7 @@ class TitlePageViewController: UIViewController, UIPickerViewDataSource, UIPicke
     func selectLevel(level: Level?) {
         selectedLevel = level
         if( level != nil ) {
-            selectLevelButton.setTitle("Play \(selectedLevel!.name)", for: .normal)
+            selectLevelButton.setTitle("\(selectedLevel!.name)", for: .normal)
         }
         else {
             selectLevelButton.setTitle("Select Level", for: .normal)
@@ -86,6 +86,10 @@ class TitlePageViewController: UIViewController, UIPickerViewDataSource, UIPicke
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         (segue.destination as! GameViewController).level = self.selectedLevel!
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return selectedLevel != nil
     }
     
     //MARK: Archiving Paths
