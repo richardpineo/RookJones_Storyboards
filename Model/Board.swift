@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-class Board {
+class Board: Equatable {
     
     let numRows: Int
     let numCols: Int
@@ -23,7 +22,11 @@ class Board {
         self.numCols = numCols
         self.tiles = Array(repeating: TileType.Empty, count: numRows * numCols)
     }
-
+    
+    public static func == (lhs: Board, rhs: Board) -> Bool {
+        return lhs.tiles == rhs.tiles
+    }
+    
     func getTileType(_ loc: Location) -> TileType {
         do {
             return try self.tiles[self.arrayIndex(loc)]
@@ -48,12 +51,17 @@ class Board {
         return locs
     }
     
-    private func numberOfTiles() -> Int {
-        return self.numRows *  self.numCols
+    func isLocationValid(_ loc: Location) -> Bool {
+        return loc.row >= 0 && loc.row < self.numRows && loc.col >= 0 && loc.col < self.numCols
+    }
+    
+    func numberOfTiles() -> Int {
+        assert(self.numRows * self.numCols == self.tiles.count)
+        return self.tiles.count;
     }
     
     private func arrayIndex(_ loc: Location) throws -> Int {
-        if( loc.row < 0 || loc.row >= self.numRows || loc.col < 0 || loc.col >= self.numCols ) {
+        if( !isLocationValid(loc) ) {
             throw BoardError.invalidCell(loc)
         }
         return loc.row + (loc.col * self.numRows)
