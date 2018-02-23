@@ -194,11 +194,10 @@ class GameScene: SKScene {
     }
     
     private func isMoveValid(starting: Location, possible: Location) -> Bool {
-        // Rooks only move to the same row or column
-        if( starting.row != possible.row && starting.col != possible.col) {
-            return false;
-        }
-        return true;
+        // Rook jones has the same movement logic as any other rook
+        let rookJones = Rook()
+        let legitMoves = rookJones.getAttackLocations(board: self.board!, pieceLocation: starting)
+        return legitMoves.contains(possible);
     }
     
     /* c = square root(a^2 + b^2)
