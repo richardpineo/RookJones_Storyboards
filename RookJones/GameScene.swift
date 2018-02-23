@@ -160,10 +160,24 @@ class GameScene: SKScene {
     private func updateMovementTiles() {
         let movementTiles = SKTileSet(named: "Movement Tiles")!
         let attackedTile = movementTiles.tileGroups.first(where: {$0.name == "Attacked"})
-        
+        let possibleTile = movementTiles.tileGroups.first(where: {$0.name == "Possible"})
+
+        let rookJones = RookJones(hasKey: self.hasKey, hasAllies: self.hasAllies)
+        let legitMoves = rookJones.getAttackLocations(board: self.board!, pieceLocation: self.rookJonesCurrentBoardLocation)
+
         for loc in self.board!.locations() {
             let tileIndex = boardToScreen(loc)
-            let tile = attackedScreenLocations.contains(tileIndex) == true ? attackedTile : nil
+            
+            // is this one attacked?
+            var tile: SKTileGroup?
+            if( attackedScreenLocations.contains(tileIndex) ) {
+                tile = attackedTile
+            }
+            // is this one possible?
+            else if(legitMoves.contains(loc)) {
+                tile = possibleTile
+            }
+            
             self.movementTileMap!.setTileGroup(tile, forColumn: tileIndex.col, row: tileIndex.row)
         }
     }
@@ -219,10 +233,9 @@ class GameScene: SKScene {
     }
     
     private func isMoveValid(starting: Location, possible: Location) -> Bool {
-        // Rook jones has the same movement logic as any other rook
         let rookJones = RookJones(hasKey: self.hasKey, hasAllies: self.hasAllies)
-        var legitMoves = rookJones.getAttackLocations(board: self.board!, pieceLocation: starting)
-                return legitMoves.contains(possible);
+        let legitMoves = rookJones.getAttackLocations(board: self.board!, pieceLocation: starting)
+        return legitMoves.contains(possible);
     }
     
     /* c = square root(a^2 + b^2)
@@ -262,6 +275,8 @@ class GameScene: SKScene {
                 self.changeBoardTile(boardLocation: boardLocation, tileType: TileType.Empty)
             }
             
+            self.updateMovementTiles()
+
             // Callback
             onDoneMoving()
         }
