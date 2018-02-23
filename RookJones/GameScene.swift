@@ -19,7 +19,6 @@ class GameScene: SKScene {
     private var movementTileMap : SKTileMapNode?
     private var board: Board?
     private var attackedScreenLocations = Set<Location>()
-    private var blockedScreenLocations = Set<Location>()
     private var rookJonesIsDead: Bool = false
     
     // Scene Nodes
@@ -42,7 +41,6 @@ class GameScene: SKScene {
         initializeTileMaps()
         initalizeTiles()
         computeAttacked()
-        computeBlocked()
         updateMovementTiles()
         initializeRookJones()
     }
@@ -182,14 +180,6 @@ class GameScene: SKScene {
         attackedScreenLocations.removeAll()
         for loc in attackedTiles {
             attackedScreenLocations.insert(self.boardToScreen(loc))
-        }
-    }
-    
-    private func computeBlocked() {
-        let blockedTiles = BoardLogic.blockedLocations( self.board! )
-        blockedScreenLocations.removeAll()
-        for loc in blockedTiles {
-            blockedScreenLocations.insert(self.boardToScreen(loc))
         }
     }
     

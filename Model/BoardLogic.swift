@@ -10,10 +10,6 @@ import Foundation
 
 class BoardLogic {
     
-    static func blockedLocations(_ board: Board) -> [Location] {
-        return board.locations().filter { BoardLogic.doesTileBlock( board.getTileType($0) ) }
-    }
-    
     static func attackedLocations(_ board: Board) -> [Location] {
         var attacked = Set<Location>()
         
