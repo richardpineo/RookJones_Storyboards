@@ -22,16 +22,34 @@ class TitlePageViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedLevel = self.levels[row]
-        selectLevelButton.setTitle("Play \(selectedLevel!.name)", for: .normal)
+        selectLevel(level: self.levels[row])
         selectLevelPicker.isHidden = true
-  }
+        saveSelectedLevel(name: (selectedLevel?.name)!)
+    }
+    
+    func selectLevelByName(name: String?) {
+        let level = self.levels.first(where: {
+            return $0.name == name
+        })
+        selectLevel(level: level)
+    }
+    
+    func selectLevel(level: Level?) {
+        selectedLevel = level
+        if( level != nil ) {
+            selectLevelButton.setTitle("Play \(selectedLevel!.name)", for: .normal)
+        }
+        else {
+            selectLevelButton.setTitle("Select Level", for: .normal)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         selectLevelPicker.delegate = self
         selectLevelPicker.dataSource = self
         loadLevels()
+        loadPreviousLevel()
     }
     
     private func loadLevels() {
@@ -69,5 +87,17 @@ class TitlePageViewController: UIViewController, UIPickerViewDataSource, UIPicke
         // Pass the selected object to the new view controller.
         (segue.destination as! GameViewController).level = self.selectedLevel!
     }
+    
+    //MARK: Archiving Paths
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("level")
 
+    private func saveSelectedLevel(name: String?) {
+        NSKeyedArchiver.archiveRootObject(name as Any, toFile: TitlePageViewController.ArchiveURL.path)
+    }
+    
+    private func loadPreviousLevel() {
+        let name = NSKeyedUnarchiver.unarchiveObject(withFile: TitlePageViewController.ArchiveURL.path) as? String
+        selectLevelByName(name: name)
+    }
 }
