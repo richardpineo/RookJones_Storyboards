@@ -15,6 +15,9 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Listen for a notification to tell us to go back to the title screen
+        NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.onBackToTitle), name:NSNotification.Name(rawValue: "BackToTitle"), object: nil)
+        
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
         if let scene = GKScene(fileNamed: "GameScene") {
@@ -35,13 +38,17 @@ class GameViewController: UIViewController {
                     
                     view.ignoresSiblingOrder = true
                     
-                    view.showsFPS = true
-                    view.showsNodeCount = true
+                    // view.showsFPS = true
+                    // view.showsNodeCount = true
                 }
             }
         }
     }
-
+    
+    @objc func onBackToTitle(notification: NSNotification){
+        self.performSegue(withIdentifier: "BackToTitle", sender: self)
+    }
+    
     override var shouldAutorotate: Bool {
         return false
     }

@@ -36,14 +36,6 @@
             </objects>
             <point key="canvasLocation" x="-186" y="245"/>
         </scene>
-        <!--Main-->
-        <scene sceneID="wbh-EZ-Z3p">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="Im9-rS-06K" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cSt-1W-dX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="557" y="244"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Title Page" width="800" height="998"/>

@@ -54,7 +54,7 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         // Pass this in from level selection.
         do {
-            try loadBoard("Level3")
+            try loadBoard("basic")
         }
         catch BoardError.invalidBoardDefinition(let error) {
             fatalError("An error occurred: \(error)")
@@ -284,9 +284,7 @@ class GameScene: SKScene {
         // Hooray!
         let scale = CGFloat(256.0)
         self.rookJones.run(SKAction.scale( by: scale, duration: 4 ) ) {
-            self.rookJones.run(SKAction.scale(by: -scale, duration: 0 ) ) {
-                self.resetBoardToStartingState()
-            }
+            NotificationCenter.default.post(Notification( name: Notification.Name(rawValue: "BackToTitle") ))
         }
     }
     
