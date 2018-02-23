@@ -25,6 +25,9 @@ class GameViewController: UIViewController {
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
                 
+                // Set the level in the scene
+                sceneNode.initialBoard = self.level?.board
+                
                 // Copy gameplay related content over to the scene
                 sceneNode.entities = scene.entities
                 sceneNode.graphs = scene.graphs
@@ -35,7 +38,7 @@ class GameViewController: UIViewController {
                 // Present the scene
                 if let view = self.view as! SKView? {
                     view.presentScene(sceneNode)
-                    
+
                     view.ignoresSiblingOrder = true
                     
                     // view.showsFPS = true
@@ -44,6 +47,8 @@ class GameViewController: UIViewController {
             }
         }
     }
+    
+    var level: Level?
     
     @objc func onBackToTitle(notification: NSNotification){
         self.performSegue(withIdentifier: "BackToTitle", sender: self)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF26CDE9203FF25C0002EC30 /* TitlePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */; };
+		BF26CDEE203FFC690002EC30 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDED203FFC690002EC30 /* Level.swift */; };
 		BF3B3348203FEDB2005CDC5F /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */; };
 		BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */; };
 		BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePageViewController.swift; sourceTree = "<group>"; };
+		BF26CDED203FFC690002EC30 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = "../../temp/Rook Jones App Icon/ios/AppIcon.appiconset"; sourceTree = "<group>"; };
 		BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLogic.swift; sourceTree = "<group>"; };
 		BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				BF6B81ED203EAF3900F59317 /* .gitignore */,
 				BF903FF6203A49980087F961 /* GameViewController.swift */,
 				BF903FF8203A49980087F961 /* Main.storyboard */,
+				BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */,
 				BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */,
 				BF903FFB203A49980087F961 /* Assets.xcassets */,
 				BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */,
@@ -153,6 +158,7 @@
 				BFC63740203FB0E100E47224 /* Pieces */,
 				BFE04F89203D52CF004B1ECE /* Location.swift */,
 				BF97C0FD203A90A500378C7F /* Board.swift */,
+				BF26CDED203FFC690002EC30 /* Level.swift */,
 				BF97C0FF203A918E00378C7F /* TileType.swift */,
 				BF97C104203AA03E00378C7F /* BoardLoader.swift */,
 				BF97C106203AA12100378C7F /* BoardError.swift */,
@@ -294,12 +300,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF26CDEE203FFC690002EC30 /* Level.swift in Sources */,
 				BFE04F8A203D52CF004B1ECE /* Location.swift in Sources */,
 				BFC6373D203FA46E00E47224 /* Piece.swift in Sources */,
 				BF903FF5203A49980087F961 /* GameScene.swift in Sources */,
 				BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */,
 				BF903FF7203A49980087F961 /* GameViewController.swift in Sources */,
 				BF97C100203A918E00378C7F /* TileType.swift in Sources */,
+				BF26CDE9203FF25C0002EC30 /* TitlePageViewController.swift in Sources */,
 				BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */,
 				BFC63742203FB0F800E47224 /* Rook.swift in Sources */,
 				BF97C0FE203A90A500378C7F /* Board.swift in Sources */,

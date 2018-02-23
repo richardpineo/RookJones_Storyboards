@@ -10,6 +10,22 @@ import Foundation
 
 struct BoardLoader {
     
+    static func loadLevels() -> [Level] {
+        var levels = Array<Level>()
+        let paths = Bundle.main.paths( forResourcesOfType: "lvl", inDirectory: nil )
+        for path in paths {
+            do{
+                let filename = ((path as NSString).lastPathComponent as NSString).deletingPathExtension
+                let board = try BoardLoader.fromFile(path)
+                levels.append(Level(board: board, name: filename))
+            }
+            catch {
+                // Skip this one
+            }
+        }
+        return levels
+    }
+    
     static func fromFile(_ path: String) throws -> Board {
         let boardDataString = try NSString( contentsOfFile: path, encoding: String.Encoding.utf8.rawValue)
         let boardData = String(boardDataString).split( separator: "\n" ).map { String($0) }

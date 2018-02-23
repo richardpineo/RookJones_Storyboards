@@ -19,9 +19,11 @@ class GameScene: SKScene {
     private var movementTileMap : SKTileMapNode?
     
     // The initial board state, just after loading
-    private var initialBoard: Board?
+    var initialBoard: Board?
+    
     // The current board state with any changes (e.g. picked up a key)
     private var board: Board?
+    
     // Which screen locations are attacked currently
     private var attackedScreenLocations = Set<Location>()
     
@@ -51,18 +53,9 @@ class GameScene: SKScene {
     // Currnet location of Rook Jones
     var rookJonesCurrentBoardLocation: Location = Location(0,0)
     
-    override func sceneDidLoad() {
+    override func didMove(to view: SKView) {
         // Pass this in from level selection.
-        do {
-            try loadBoard("basic")
-        }
-        catch BoardError.invalidBoardDefinition(let error) {
-            fatalError("An error occurred: \(error)")
-        }
-        catch {
-            fatalError("Couldn't load board")
-        }
-
+        assert(self.initialBoard != nil)
         resetBoardToStartingState()
         initializeRookJones()
     }
@@ -102,12 +95,6 @@ class GameScene: SKScene {
     
     private func screenLocationToPoint(_ loc: Location) -> CGPoint {
         return self.boardTileMap!.centerOfTile(atColumn: loc.col, row: loc.row)
-    }
-
-    private func loadBoard( _ boardName: String ) throws {
-        // Pass this in from level selection.
-        let path = Bundle.main.path( forResource: boardName, ofType: "lvl")
-        self.initialBoard = try BoardLoader.fromFile( path! )
     }
     
     private func initializeRookJones() {

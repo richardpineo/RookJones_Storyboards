@@ -71,18 +71,16 @@ class RookJonesTests: XCTestCase {
     
     func testLoadFromFile() {
         do {
-            let paths = Bundle.main.paths( forResourcesOfType: "lvl", inDirectory: nil )
-            XCTAssertGreaterThan( paths.count, 0 )
-            for path in paths {
-                let board = try BoardLoader.fromFile(path)
-                
+            let levels = BoardLoader.loadLevels()
+            XCTAssertGreaterThan( levels.count, 0 )
+            for level in levels {
                 // Convert back and forth to ascii to check board
-                let ascii = try BoardLoader.toAscii(board)
+                let ascii = try BoardLoader.toAscii(level.board)
                 let board2 = try BoardLoader.fromAscii(ascii)
-                XCTAssert( board == board2 );
+                XCTAssert( level.board == board2 );
                 XCTAssert( try BoardLoader.toAscii( board2 ) == ascii )
                 
-                print("Loaded board (\(board.numRows)x\(board.numCols)) from \((path as NSString).lastPathComponent)")
+                print("Loaded board \(level.name). Dimensions are (\(level.board.numRows)x\(level.board.numCols))")
             }
         }
         catch {
