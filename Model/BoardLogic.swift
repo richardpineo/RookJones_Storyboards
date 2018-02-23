@@ -15,16 +15,38 @@ class BoardLogic {
         
         // Walk through all the pieces and add the attacked locations to the set.
         for loc in board.locations() {
-            let piece = makePiece(board.getTileType(loc))
-            if( piece != nil ) {
-                attacked = attacked.union(piece!.getAttackLocations(board: board, pieceLocation: loc))
+            let tileType = board.getTileType(loc);
+            if( !isAlly(tileType) && tileType != TileType.RookJones ) {
+                let piece = makePiece(tileType)
+                if( piece != nil ) {
+                    attacked = attacked.union(piece!.getAttackLocations(board: board, pieceLocation: loc))
+                }
             }
         }
         return Array(attacked)
     }
     
-    private static func makePiece(_ tileType: TileType) -> Piece? {
+    static func hasAlliesOnBoard(_ board: Board) -> Bool {
+        return board.locations().contains {
+            return isAlly( board.getTileType( $0 ) )
+        }
+    }
+    
+    static func isAlly(_ tileType: TileType) -> Bool {
+        switch( tileType ) {
+        case TileType.BlackRook:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    static func makePiece(_ tileType: TileType) -> Piece? {
         switch(tileType) {
+        case TileType.RookJones:
+            return Rook()
+        case TileType.BlackRook:
+            return Rook()
         case TileType.WhiteRook:
             return Rook()
         default:
@@ -35,8 +57,6 @@ class BoardLogic {
     static func doesTileBlock(_ tileType: TileType) -> Bool {
         switch(tileType) {
         case TileType.Wall:
-            return true
-        case TileType.LockedDoor:
             return true
         case TileType.WhiteRook:
             return true

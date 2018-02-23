@@ -25,7 +25,7 @@ class GameScene: SKScene {
     // Which screen locations are attacked currently
     private var attackedScreenLocations = Set<Location>()
     
-    // State variables
+    // True if Jones is alive and kickin'
     private var rookJonesIsDead: Bool = false
     
     var hasKey: Bool {
@@ -45,12 +45,16 @@ class GameScene: SKScene {
     // Scene Nodes
     var rookJones: SKSpriteNode!
     
+    // Whether there are any allies left on the board
+    var hasAllies: Bool = false
+    
+    // Currnet location of Rook Jones
     var rookJonesCurrentBoardLocation: Location = Location(0,0)
     
     override func sceneDidLoad() {
         // Pass this in from level selection.
         do {
-            try loadBoard("Level13")
+            try loadBoard("Level3")
         }
         catch BoardError.invalidBoardDefinition(let error) {
             fatalError("An error occurred: \(error)")
@@ -71,7 +75,9 @@ class GameScene: SKScene {
         catch {
             fatalError("Couldn't copy board")
         }
+        self.hasAllies = BoardLogic.hasAlliesOnBoard(self.board!)
         self.initializeTileMaps()
+        self.initializeRookJones()
         self.updateBoardTilesInScene()
         self.computeAttacked()
         self.updateMovementTiles()
@@ -198,7 +204,7 @@ class GameScene: SKScene {
         case TileType.BlackRook:
             return "Black Rook"
         case TileType.Exit:
-            return "Exit"
+            return self.hasAllies ? "Closed Door" : "Open Door"
         case TileType.LockedDoor:
             return "Locked"
         default:
@@ -217,6 +223,7 @@ class GameScene: SKScene {
     private func changeBoardTile(boardLocation: Location, tileType: TileType) {
         do {
             try self.board!.setTileType(location: boardLocation, tileType: tileType)
+            self.hasAllies = BoardLogic.hasAlliesOnBoard(self.board!)
             self.updateBoardTilesInScene()
             self.computeAttacked()
         }
@@ -245,14 +252,14 @@ class GameScene: SKScene {
         return TimeInterval(time)
     }
     
-    private func moveRookJones(boardLocation: Location) {
+    private func moveRookJones(boardLocation: Location, onDoneMoving: @escaping ()->Void ) {
 
         self.rookJonesCurrentBoardLocation = boardLocation
         let screenLocation = boardToScreen(boardLocation)
         let targetPoint = screenLocationToPoint(screenLocation)
         
         let distance = distanceBetweenPoints(a: targetPoint, b: self.rookJones.position)
-        let playerSpeed: CGFloat = 700  // constant speed
+        let playerSpeed: CGFloat = 1000  // constant speed
         let time = timeToTravelDistance(distance: distance, speed: playerSpeed)
         let move = SKAction.move(to: targetPoint, duration: time)
         self.rookJones.run(move) {
@@ -267,31 +274,63 @@ class GameScene: SKScene {
                 self.hasKey = true
                 self.changeBoardTile(boardLocation: boardLocation, tileType: TileType.Empty)
             }
+            
+            // Callback
+            onDoneMoving()
+        }
+    }
+    
+    func passTheLevel() {
+        // Hooray!
+        let scale = CGFloat(256.0)
+        self.rookJones.run(SKAction.scale( by: scale, duration: 4 ) ) {
+            self.rookJones.run(SKAction.scale(by: -scale, duration: 0 ) ) {
+                self.resetBoardToStartingState()
+            }
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         
-        // If moving, then don't allow
-        if( self.rookJones.hasActions()) {
-            return;
-        }
-        
+        // Are we dead yet?
         if( self.rookJonesIsDead ) {
             // bring him back to life
             self.resetBoardToStartingState()
             return;
         }
 
+        // If moving, then don't allow
+        if( self.rookJones.hasActions()) {
+            return;
+        }
+
         // Set the targetLocation to the destination
         let point = touch.location(in: self)
         let boardLocation = screenToBoard(pointToScreenLocation(point))
-        if( self.board!.getTileType(boardLocation) == TileType.LockedDoor && self.hasKey ) {
-            changeBoardTile(boardLocation: boardLocation, tileType: TileType.Empty)
+        let destTileType = self.board!.getTileType(boardLocation)
+        
+        // Is the proposed destination valid?
+        if( !isMoveValid(starting: self.rookJonesCurrentBoardLocation, possible: boardLocation)) {
+            return;
         }
-        if(isMoveValid(starting: self.rookJonesCurrentBoardLocation, possible: boardLocation)) {
-            moveRookJones(boardLocation: boardLocation)
-        }
+
+        // Perform the move
+        moveRookJones(boardLocation: boardLocation, onDoneMoving: {
+            // Unlock the door if they clicked on a door
+            if( destTileType == TileType.LockedDoor && self.hasKey ) {
+                self.changeBoardTile(boardLocation: boardLocation, tileType: TileType.Empty)
+            }
+            
+            // Is he landing on an ally? If so, save the ally!
+            if( BoardLogic.isAlly(destTileType) ) {
+                self.changeBoardTile(boardLocation: boardLocation, tileType: TileType.Empty)
+            }
+            
+            // Is rook jones on the exit?
+            if( destTileType == TileType.Exit ) {
+                self.passTheLevel()
+            }
+        })
     }
 }

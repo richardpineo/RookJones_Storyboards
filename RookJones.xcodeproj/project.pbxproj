@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */; };
 		BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */; };
+		BF614CDF203FC6750061B5D7 /* basic.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF614CDE203FC6750061B5D7 /* basic.lvl */; };
 		BF6B81EE203EAF3900F59317 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BF6B81ED203EAF3900F59317 /* .gitignore */; };
 		BF89304F203D238F00D7693B /* PieceTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF89304E203D238F00D7693B /* PieceTiles.sks */; };
 		BF903FEF203A49980087F961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF903FEE203A49980087F961 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		BF97C107203AA12100378C7F /* BoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C106203AA12100378C7F /* BoardError.swift */; };
 		BFC6373D203FA46E00E47224 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC6373C203FA46E00E47224 /* Piece.swift */; };
 		BFC63742203FB0F800E47224 /* Rook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC63741203FB0F800E47224 /* Rook.swift */; };
+		BFC63744203FC2C800E47224 /* Level3.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BFC63743203FC2C800E47224 /* Level3.lvl */; };
 		BFE04F8A203D52CF004B1ECE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE04F89203D52CF004B1ECE /* Location.swift */; };
 		BFE04F8C203D57AC004B1ECE /* MovementTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,7 @@
 /* Begin PBXFileReference section */
 		BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLogic.swift; sourceTree = "<group>"; };
 		BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		BF614CDE203FC6750061B5D7 /* basic.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = basic.lvl; sourceTree = "<group>"; };
 		BF6B81ED203EAF3900F59317 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BF89304E203D238F00D7693B /* PieceTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PieceTiles.sks; sourceTree = "<group>"; };
 		BF903FEB203A49980087F961 /* RookJones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RookJones.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +71,7 @@
 		BF97C106203AA12100378C7F /* BoardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardError.swift; sourceTree = "<group>"; };
 		BFC6373C203FA46E00E47224 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		BFC63741203FB0F800E47224 /* Rook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rook.swift; sourceTree = "<group>"; };
+		BFC63743203FC2C800E47224 /* Level3.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Level3.lvl; sourceTree = "<group>"; };
 		BFE04F89203D52CF004B1ECE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MovementTiles.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +161,8 @@
 		BF97C101203A977C00378C7F /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				BF614CDE203FC6750061B5D7 /* basic.lvl */,
+				BFC63743203FC2C800E47224 /* Level3.lvl */,
 				BF97C102203A9C2300378C7F /* Level13.lvl */,
 			);
 			path = Levels;
@@ -255,11 +261,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE04F8C203D57AC004B1ECE /* MovementTiles.sks in Resources */,
+				BFC63744203FC2C800E47224 /* Level3.lvl in Resources */,
 				BF904015203A66020087F961 /* Herculanum.ttf in Resources */,
 				BF903FFA203A49980087F961 /* Main.storyboard in Resources */,
 				BF903FF1203A49980087F961 /* GameScene.sks in Resources */,
 				BF6B81EE203EAF3900F59317 /* .gitignore in Resources */,
 				BF903FFC203A49980087F961 /* Assets.xcassets in Resources */,
+				BF614CDF203FC6750061B5D7 /* basic.lvl in Resources */,
 				BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */,
 				BF97C103203A9C2300378C7F /* Level13.lvl in Resources */,
 				BF903FF3203A49980087F961 /* Actions.sks in Resources */,
