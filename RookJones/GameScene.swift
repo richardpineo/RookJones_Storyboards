@@ -43,7 +43,7 @@ class GameScene: SKScene {
         }
     }
     private var _hasKey: Bool = false
-
+    
     // Scene Nodes
     var rookJones: SKSpriteNode!
     
@@ -77,16 +77,16 @@ class GameScene: SKScene {
         self.hasKey = false
         self.rookJonesIsDead = false
     }
-
+    
     private func boardToScreen(_ loc: Location) -> Location {
         return Location(self.board!.numRows - loc.row - 1, loc.col )
     }
-
+    
     private func screenToBoard(_ loc: Location) -> Location {
         // It's actually the same conversion as boardToScreen
         return boardToScreen(loc)
     }
-
+    
     private func pointToScreenLocation(_ point: CGPoint) -> Location {
         let col = self.boardTileMap!.tileColumnIndex(fromPosition: point)
         let row = self.boardTileMap!.tileRowIndex(fromPosition: point)
@@ -130,7 +130,7 @@ class GameScene: SKScene {
         self.pieceTileMap = self.childNode(withName: "//pieces") as? SKTileMapNode
         self.pieceTileMap!.numberOfColumns = self.board!.numCols
         self.pieceTileMap!.numberOfRows = self.board!.numRows
-
+        
         // Size the movement tile map
         self.movementTileMap = self.childNode(withName: "//movement") as? SKTileMapNode
         self.movementTileMap!.numberOfColumns = self.board!.numCols
@@ -161,27 +161,29 @@ class GameScene: SKScene {
         let movementTiles = SKTileSet(named: "Movement Tiles")!
         let attackedTile = movementTiles.tileGroups.first(where: {$0.name == "Attacked"})
         let possibleTile = movementTiles.tileGroups.first(where: {$0.name == "Possible"})
-
+        
         let rookJones = RookJones(hasKey: self.hasKey, hasAllies: self.hasAllies)
         let legitMoves = rookJones.getAttackLocations(board: self.board!, pieceLocation: self.rookJonesCurrentBoardLocation)
-
+        
         for loc in self.board!.locations() {
             let tileIndex = boardToScreen(loc)
             
-            // is this one attacked?
             var tile: SKTileGroup?
-            if( attackedScreenLocations.contains(tileIndex) ) {
-                tile = attackedTile
-            }
-            // is this one possible?
-            else if(legitMoves.contains(loc)) {
-                tile = possibleTile
+            if( !self.rookJonesIsDead ) {
+                // is this one attacked?
+                if( attackedScreenLocations.contains(tileIndex) ) {
+                    tile = attackedTile
+                }
+                    // is this one possible?
+                else if(legitMoves.contains(loc)) {
+                    tile = possibleTile
+                }
             }
             
             self.movementTileMap!.setTileGroup(tile, forColumn: tileIndex.col, row: tileIndex.row)
         }
     }
-
+    
     private func cellTileName( row: Int, col: Int ) -> String {
         return (1 == (row + col) % 2) ? "Black Cell" : "White Cell"
     }
@@ -253,7 +255,7 @@ class GameScene: SKScene {
     }
     
     private func moveRookJones(boardLocation: Location, onDoneMoving: @escaping ()->Void ) {
-
+        
         self.rookJonesCurrentBoardLocation = boardLocation
         let screenLocation = boardToScreen(boardLocation)
         let targetPoint = screenLocationToPoint(screenLocation)
@@ -276,7 +278,7 @@ class GameScene: SKScene {
             }
             
             self.updateMovementTiles()
-
+            
             // Callback
             onDoneMoving()
         }
@@ -299,12 +301,12 @@ class GameScene: SKScene {
             self.resetBoardToStartingState()
             return;
         }
-
+        
         // If moving, then don't allow
         if( self.rookJones.hasActions()) {
             return;
         }
-
+        
         // Set the targetLocation to the destination
         let point = touch.location(in: self)
         let boardLocation = screenToBoard(pointToScreenLocation(point))
@@ -314,7 +316,7 @@ class GameScene: SKScene {
         if( !isMoveValid(starting: self.rookJonesCurrentBoardLocation, possible: boardLocation)) {
             return;
         }
-
+        
         // Perform the move
         moveRookJones(boardLocation: boardLocation, onDoneMoving: {
             // Unlock the door if they clicked on a door
