@@ -12,6 +12,8 @@
 		BF26CDF0204006640002EC30 /* RookJones.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDEF204006630002EC30 /* RookJones.swift */; };
 		BF3B3348203FEDB2005CDC5F /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */; };
 		BF3BB437204D134F004810A9 /* Knight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3BB436204D134F004810A9 /* Knight.swift */; };
+		BF3F5056204D1E0800B7C639 /* logic.test in Resources */ = {isa = PBXBuildFile; fileRef = BF3F5054204D1DAB00B7C639 /* logic.test */; };
+		BF3F5057204D217900B7C639 /* logic.test in Resources */ = {isa = PBXBuildFile; fileRef = BF3F5054204D1DAB00B7C639 /* logic.test */; };
 		BF4F5348203E4C4C00FBD2DD /* BoardLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */; };
 		BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */; };
 		BF614CDF203FC6750061B5D7 /* Test Level.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF614CDE203FC6750061B5D7 /* Test Level.lvl */; };
@@ -55,6 +57,7 @@
 		BF26CDEF204006630002EC30 /* RookJones.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RookJones.swift; sourceTree = "<group>"; };
 		BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = "../../temp/Rook Jones App Icon/ios/AppIcon.appiconset"; sourceTree = "<group>"; };
 		BF3BB436204D134F004810A9 /* Knight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Knight.swift; sourceTree = "<group>"; };
+		BF3F5054204D1DAB00B7C639 /* logic.test */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = logic.test; sourceTree = "<group>"; };
 		BF4F5347203E4C4C00FBD2DD /* BoardLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLogic.swift; sourceTree = "<group>"; };
 		BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BF614CDE203FC6750061B5D7 /* Test Level.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Test Level.lvl"; sourceTree = "<group>"; };
@@ -104,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF3BB438204D1617004810A9 /* Test Levels */ = {
+			isa = PBXGroup;
+			children = (
+				BF3F5054204D1DAB00B7C639 /* logic.test */,
+			);
+			path = "Test Levels";
+			sourceTree = "<group>";
+		};
 		BF903FE2203A49980087F961 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +161,7 @@
 		BF904008203A49980087F961 /* RookJonesTests */ = {
 			isa = PBXGroup;
 			children = (
+				BF3BB438204D1617004810A9 /* Test Levels */,
 				BF904009203A49980087F961 /* RookJonesTests.swift */,
 				BF90400B203A49980087F961 /* Info.plist */,
 			);
@@ -179,7 +191,7 @@
 				BF97C102203A9C2300378C7F /* Level 13.lvl */,
 			);
 			path = Levels;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		BFC63740203FB0E100E47224 /* Pieces */ = {
 			isa = PBXGroup;
@@ -282,6 +294,7 @@
 				BF3B3348203FEDB2005CDC5F /* AppIcon.appiconset in Resources */,
 				BF903FF1203A49980087F961 /* GameScene.sks in Resources */,
 				BF6B81EE203EAF3900F59317 /* .gitignore in Resources */,
+				BF3F5056204D1E0800B7C639 /* logic.test in Resources */,
 				BF903FFC203A49980087F961 /* Assets.xcassets in Resources */,
 				BF614CDF203FC6750061B5D7 /* Test Level.lvl in Resources */,
 				BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */,
@@ -296,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF3F5057204D217900B7C639 /* logic.test in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

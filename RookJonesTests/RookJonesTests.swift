@@ -22,46 +22,20 @@ class RookJonesTests: XCTestCase {
     }
     
     func testBoardLogic() {
-        let boardData: Array<String> = [
-            "----------",
-            "-R  -    O",
-            "--      --",
-            "-   R-   -",
-            "-    R-R -",
-            "-     R- -",
-            "-   -R   -",
-            "- R---R  -",
-            "- -----  -",
-            "-  *-rx --",
-            "------- R-",
-            "-  ---R  -",
-            "-   -R   -",
-            "- R      -",
-            "- R --  R-",
-            "-   R    -",
-            "- -   - --",
-            "J - -    -",
-            "----------"
-        ];
-        
         do {
-            
-            // Load it
-            let board = try BoardLoader.fromAscii(boardData)
-            let ascii = try BoardLoader.toAscii(board)
-            XCTAssertEqual(boardData, ascii)
+            let level = try BoardLoader.loadTestLevel("logic")
 
             // Check basics
-            XCTAssertEqual(board.numRows, 19)
-            XCTAssertEqual(board.numCols, 10)
-            XCTAssertEqual(board.numberOfTiles(), 190)
+            XCTAssertEqual(level.board.numRows, 19)
+            XCTAssertEqual(level.board.numCols, 10)
+            XCTAssertEqual(level.board.numberOfTiles(), 190)
             
             // Check specific pieces
-            XCTAssertEqual(board.getTileType(Location(17, 0)), TileType.RookJones)
-            XCTAssertEqual(board.getTileType(Location(100, 1)), TileType.Empty)
+            XCTAssertEqual(level.board.getTileType(Location(17, 0)), TileType.RookJones)
+            XCTAssertEqual(level.board.getTileType(Location(100, 1)), TileType.Empty)
             
             // Check attacked squares
-            let attacks = BoardLogic.attackedLocations(board)
+            let attacks = BoardLogic.attackedLocations(level.board)
             XCTAssertEqual(attacks.count, 54)
         }
         catch {
@@ -71,7 +45,7 @@ class RookJonesTests: XCTestCase {
     
     func testLoadFromFile() {
         do {
-            let levels = BoardLoader.loadLevels()
+            let levels = BoardLoader.loadAllLevels()
             XCTAssertGreaterThan( levels.count, 0 )
             for level in levels {
                 // Convert back and forth to ascii to check board
@@ -80,7 +54,7 @@ class RookJonesTests: XCTestCase {
                 XCTAssert( level.board == board2 );
                 XCTAssert( try BoardLoader.toAscii( board2 ) == ascii )
                 
-                print("Loaded board \(level.name). Dimensions are (\(level.board.numRows)x\(level.board.numCols))")
+                print("Loaded \(level.type) board \(level.name): (\(level.board.numRows)x\(level.board.numCols))")
             }
         }
         catch {

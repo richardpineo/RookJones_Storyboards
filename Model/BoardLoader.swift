@@ -10,14 +10,36 @@ import Foundation
 
 struct BoardLoader {
     
-    static func loadLevels() -> [Level] {
+    static func loadTestLevel(_ name: String) throws -> Level {
+        let path = Bundle.main.path( forResource: name, ofType: "test" )
+        let board = try BoardLoader.fromFile(path!)
+        return Level(board: board, name: name, type: LevelType.Test)
+    }
+
+    static func loadAllLevels() -> [Level] {
         var levels = Array<Level>()
-        let paths = Bundle.main.paths( forResourcesOfType: "lvl", inDirectory: nil )
+        levels.append(contentsOf: loadLevels())
+        levels.append(contentsOf: loadTestLevels())
+        return levels
+    }
+
+    static func loadTestLevels() -> [Level] {
+        return loadLevelsOfType(LevelType.Test)
+    }
+
+    static func loadLevels() -> [Level] {
+        return loadLevelsOfType(LevelType.Real)
+    }
+
+    private static func loadLevelsOfType(_ ofType: LevelType) -> [Level] {
+        var levels = Array<Level>()
+        let ext = ofType == LevelType.Real ? "lvl" : "test"
+        let paths = Bundle.main.paths( forResourcesOfType: ext, inDirectory: nil )
         for path in paths {
             do{
                 let filename = ((path as NSString).lastPathComponent as NSString).deletingPathExtension
                 let board = try BoardLoader.fromFile(path)
-                levels.append(Level(board: board, name: filename))
+                levels.append(Level(board: board, name: filename, type: ofType))
             }
             catch {
                 // Skip this one

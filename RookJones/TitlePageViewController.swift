@@ -53,18 +53,7 @@ class TitlePageViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     private func loadLevels() {
-        self.levels.removeAll()
-        let paths = Bundle.main.paths( forResourcesOfType: "lvl", inDirectory: nil )
-        for path in paths {
-            do{
-                let filename = ((path as NSString).lastPathComponent as NSString).deletingPathExtension
-                let board = try BoardLoader.fromFile(path)
-                self.levels.append(Level(board: board, name: filename))
-            }
-            catch {
-                // Skip this one
-            }
-        }
+        self.levels = BoardLoader.loadLevels()
     }
 
     private var selectedLevel: Level?
