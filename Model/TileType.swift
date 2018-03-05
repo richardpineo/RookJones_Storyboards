@@ -15,6 +15,7 @@ enum TileType {
     case LockedDoor
     case Key
     case WhiteRook
+    case WhiteKnight
     case BlackRook
     case Exit
 }

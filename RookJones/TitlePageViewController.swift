@@ -24,7 +24,7 @@ class TitlePageViewController: UIViewController, UIPickerViewDataSource, UIPicke
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectLevel(level: self.levels[row])
         selectLevelPicker.isHidden = true
-        saveSelectedLevel(name: (selectedLevel?.name)!)
+        saveSelectedLevel(name: selectedLevel?.name)
     }
     
     func selectLevelByName(name: String?) {

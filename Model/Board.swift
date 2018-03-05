@@ -6,7 +6,7 @@
 //  Copyright © 2018 Richard Pineo. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class Board: Equatable {
     

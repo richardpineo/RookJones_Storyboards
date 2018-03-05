@@ -49,6 +49,8 @@ class BoardLogic {
             return Rook()
         case TileType.WhiteRook:
             return Rook()
+        case TileType.WhiteKnight:
+            return Knight()
         default:
             return nil
         }
@@ -59,6 +61,8 @@ class BoardLogic {
         case TileType.Wall:
             return true
         case TileType.WhiteRook:
+            return true
+        case TileType.WhiteKnight:
             return true
         case TileType.LockedDoor:
             return true

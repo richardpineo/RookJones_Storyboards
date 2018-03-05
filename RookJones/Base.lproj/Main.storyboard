@@ -68,7 +68,7 @@
                     </view>
                     <connections>
                         <outlet property="selectLevelButton" destination="XEx-ln-avr" id="i8g-RT-Qyx"/>
-                        <outlet property="selectLevelPicker" destination="brV-jz-KNi" id="NCO-Z6-Q2y"/>
+                        <outlet property="selectLevelPicker" destination="brV-jz-KNi" id="NCo-cd-l9h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bwe-uC-dC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
