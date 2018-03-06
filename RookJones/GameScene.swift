@@ -208,6 +208,8 @@ class GameScene: SKScene {
             return "White Knight"
         case TileType.WhiteBishop:
             return "White Bishop"
+        case TileType.WhiteQueen:
+            return "White Queen"
         case TileType.BlackRook:
             return "Black Rook"
         case TileType.Exit:

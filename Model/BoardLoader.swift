@@ -91,6 +91,8 @@ struct BoardLoader {
             return TileType.WhiteKnight
         case "B":
             return TileType.WhiteBishop
+        case "Q":
+            return TileType.WhiteQueen
         case "r":
             return TileType.BlackRook
         case "*":
@@ -118,6 +120,8 @@ struct BoardLoader {
                 return "N"
             case TileType.WhiteBishop:
                 return "B"
+            case TileType.WhiteQueen:
+                return "Q"
             case TileType.BlackRook:
                 return "r"
             case TileType.Key:
