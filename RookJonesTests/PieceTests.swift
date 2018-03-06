@@ -31,4 +31,15 @@ class PieceTests: XCTestCase {
         // blocked location
         testAttacks(board: level.board, piece: knight, location: Location(11,5), attackCount: 4)
     }
+
+    func testBishop() throws {
+        let level = try Util().loadTestLevel("bishop")
+        let bishop = Bishop()
+        
+        // open location
+        testAttacks(board: level.board, piece: bishop, location: Location(9,5), attackCount: 14)
+
+        // blocked location
+        testAttacks(board: level.board, piece: bishop, location: Location(3,5), attackCount: 11)
+    }
 }

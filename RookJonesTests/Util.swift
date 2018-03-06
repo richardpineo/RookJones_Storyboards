@@ -17,12 +17,12 @@ extension XCTestCase {
 }
 
 class Util {
-    private func testBundle() -> Bundle {
+    private func bundleForTests() -> Bundle {
         return Bundle(for: type(of: self))
     }
     
     func loadTestLevel(_ name: String) throws -> Level {
-        let path = testBundle().path( forResource: name, ofType: "test" )
+        let path = bundleForTests().path( forResource: name, ofType: "test" )
         let board = try BoardLoader.fromFile(path!)
         return Level(board: board, name: name, type: LevelType.Test)
     }
@@ -35,6 +35,6 @@ class Util {
     }
     
     func loadTestLevels() -> [Level] {
-        return BoardLoader.loadLevelsOfType(bundle: testBundle(), ofType: LevelType.Test)
+        return BoardLoader.loadLevelsOfType(bundle: bundleForTests(), ofType: LevelType.Test)
     }
 }
