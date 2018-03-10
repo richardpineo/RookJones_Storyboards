@@ -212,6 +212,8 @@ class GameScene: SKScene {
             return "White Queen"
         case TileType.BlackRook:
             return "Black Rook"
+        case TileType.Treasure:
+            return "Diamond"
         case TileType.Exit:
             return self.hasAllies ? "Closed Door" : "Open Door"
         case TileType.LockedDoor:

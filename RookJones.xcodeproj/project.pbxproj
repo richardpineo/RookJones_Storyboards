@@ -12,6 +12,7 @@
 		BF261FD42053A4F3001DC2AA /* Level 8 - Bishops.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF261FD32053A4F3001DC2AA /* Level 8 - Bishops.lvl */; };
 		BF261FD62053A7C5001DC2AA /* bad - two rook jones.test in Resources */ = {isa = PBXBuildFile; fileRef = BF261FD52053A7C5001DC2AA /* bad - two rook jones.test */; };
 		BF261FD82053A907001DC2AA /* logic.test in Resources */ = {isa = PBXBuildFile; fileRef = BF261FD72053A907001DC2AA /* logic.test */; };
+		BF261FDB2053ACFD001DC2AA /* Level 17 - Queens.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF261FD92053AA77001DC2AA /* Level 17 - Queens.lvl */; };
 		BF26CDE9203FF25C0002EC30 /* TitlePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */; };
 		BF26CDEE203FFC690002EC30 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDED203FFC690002EC30 /* Level.swift */; };
 		BF26CDF0204006640002EC30 /* RookJones.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDEF204006630002EC30 /* RookJones.swift */; };
@@ -81,6 +82,7 @@
 		BF261FD32053A4F3001DC2AA /* Level 8 - Bishops.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level 8 - Bishops.lvl"; sourceTree = "<group>"; };
 		BF261FD52053A7C5001DC2AA /* bad - two rook jones.test */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bad - two rook jones.test"; sourceTree = "<group>"; };
 		BF261FD72053A907001DC2AA /* logic.test */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = logic.test; sourceTree = "<group>"; };
+		BF261FD92053AA77001DC2AA /* Level 17 - Queens.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level 17 - Queens.lvl"; sourceTree = "<group>"; };
 		BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePageViewController.swift; sourceTree = "<group>"; };
 		BF26CDED203FFC690002EC30 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		BF26CDEF204006630002EC30 /* RookJones.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RookJones.swift; sourceTree = "<group>"; };
@@ -229,12 +231,13 @@
 		BF97C101203A977C00378C7F /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				BF614CDE203FC6750061B5D7 /* Level 1 - Test.lvl */,
 				BF261FD12053A48B001DC2AA /* Level 0 - Empty.lvl */,
+				BF614CDE203FC6750061B5D7 /* Level 1 - Test.lvl */,
 				BFC63743203FC2C800E47224 /* Level 3 - Rooks.lvl */,
 				BF261FCF2053A27A001DC2AA /* Level 7 - Knights.lvl */,
 				BF261FD32053A4F3001DC2AA /* Level 8 - Bishops.lvl */,
 				BF97C102203A9C2300378C7F /* Level 13 - Rooks 2.lvl */,
+				BF261FD92053AA77001DC2AA /* Level 17 - Queens.lvl */,
 			);
 			path = Levels;
 			sourceTree = SOURCE_ROOT;
@@ -338,6 +341,7 @@
 				BFE04F8C203D57AC004B1ECE /* MovementTiles.sks in Resources */,
 				BFC63744203FC2C800E47224 /* Level 3 - Rooks.lvl in Resources */,
 				BF904015203A66020087F961 /* Herculanum.ttf in Resources */,
+				BF261FDB2053ACFD001DC2AA /* Level 17 - Queens.lvl in Resources */,
 				BF903FFA203A49980087F961 /* Main.storyboard in Resources */,
 				BF261FD22053A48B001DC2AA /* Level 0 - Empty.lvl in Resources */,
 				BF3B3348203FEDB2005CDC5F /* AppIcon.appiconset in Resources */,

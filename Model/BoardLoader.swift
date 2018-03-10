@@ -97,6 +97,8 @@ struct BoardLoader {
             return TileType.BlackRook
         case "*":
             return TileType.Key
+        case "$":
+            return TileType.Treasure
         case "J":
             return TileType.RookJones
         case "O":
@@ -126,6 +128,8 @@ struct BoardLoader {
                 return "r"
             case TileType.Key:
                 return "*"
+            case TileType.Treasure:
+                return "$"
             case TileType.RookJones:
                 return "J"
             case TileType.Exit:

@@ -19,5 +19,6 @@ enum TileType {
     case WhiteBishop
     case WhiteQueen
     case BlackRook
+    case Treasure
     case Exit
 }
