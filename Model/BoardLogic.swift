@@ -9,6 +9,16 @@
 import Foundation
 
 class BoardLogic {
+    // Checks to see if the board is valid and throws an error if it isn't.
+    static func checkBoardValid(_ board: Board) throws {
+        let rookJonesCount = board.tiles.reduce(0, { count, type in
+            count + (type == TileType.RookJones ? 1 : 0);
+        });
+                
+        if( rookJonesCount != 1) {
+            throw BoardError.invalidBoardDefinition("There were \(rookJonesCount) Rook Jones; expected 1" );
+        }
+    }
     
     static func attackedLocations(_ board: Board) -> [Location] {
         var attacked = Set<Location>()

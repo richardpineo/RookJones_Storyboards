@@ -28,6 +28,17 @@ class BaseTests: XCTestCase {
         XCTAssertEqual(attacks.count, 54)
     }
     
+    func testBadBoards() throws {
+        let level = try Util().loadTestLevel("bad - two rook jones")
+        do {
+            try BoardLogic.checkBoardValid(level.board);
+            XCTFail("Should not get here");
+        }
+        catch BoardError.invalidBoardDefinition(let errorMessage) {
+            XCTAssert(errorMessage.count > 0);
+        }
+    }
+    
     func testLoadFromFile() throws {
         let util = Util()
         let levels = util.loadAllLevels()

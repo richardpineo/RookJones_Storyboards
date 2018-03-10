@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF261FD02053A27A001DC2AA /* Level 7.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF261FCF2053A27A001DC2AA /* Level 7.lvl */; };
+		BF261FD02053A27A001DC2AA /* Level 7 - Knights.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF261FCF2053A27A001DC2AA /* Level 7 - Knights.lvl */; };
+		BF261FD22053A48B001DC2AA /* Level 0 - Empty.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF261FD12053A48B001DC2AA /* Level 0 - Empty.lvl */; };
+		BF261FD42053A4F3001DC2AA /* Level 8 - Bishops.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF261FD32053A4F3001DC2AA /* Level 8 - Bishops.lvl */; };
+		BF261FD62053A7C5001DC2AA /* bad - two rook jones.test in Resources */ = {isa = PBXBuildFile; fileRef = BF261FD52053A7C5001DC2AA /* bad - two rook jones.test */; };
+		BF261FD82053A907001DC2AA /* logic.test in Resources */ = {isa = PBXBuildFile; fileRef = BF261FD72053A907001DC2AA /* logic.test */; };
 		BF26CDE9203FF25C0002EC30 /* TitlePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */; };
 		BF26CDEE203FFC690002EC30 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDED203FFC690002EC30 /* Level.swift */; };
 		BF26CDF0204006640002EC30 /* RookJones.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26CDEF204006630002EC30 /* RookJones.swift */; };
 		BF3B3348203FEDB2005CDC5F /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */; };
 		BF3BB437204D134F004810A9 /* Knight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3BB436204D134F004810A9 /* Knight.swift */; };
-		BF3F5057204D217900B7C639 /* logic.test in Resources */ = {isa = PBXBuildFile; fileRef = BF3F5054204D1DAB00B7C639 /* logic.test */; };
 		BF3F5059204D226D00B7C639 /* PieceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F5058204D226D00B7C639 /* PieceTests.swift */; };
 		BF3F505B204D22F600B7C639 /* rook.test in Resources */ = {isa = PBXBuildFile; fileRef = BF3F505A204D22F600B7C639 /* rook.test */; };
 		BF3F505D204D243C00B7C639 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F505C204D243C00B7C639 /* Util.swift */; };
@@ -37,7 +40,7 @@
 		BF539284204E5069001374A3 /* Queen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF539283204E5068001374A3 /* Queen.swift */; };
 		BF539285204E5069001374A3 /* Queen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF539283204E5068001374A3 /* Queen.swift */; };
 		BF539287204E5165001374A3 /* queen.test in Resources */ = {isa = PBXBuildFile; fileRef = BF539286204E5165001374A3 /* queen.test */; };
-		BF614CDF203FC6750061B5D7 /* Test Level.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF614CDE203FC6750061B5D7 /* Test Level.lvl */; };
+		BF614CDF203FC6750061B5D7 /* Level 1 - Test.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF614CDE203FC6750061B5D7 /* Level 1 - Test.lvl */; };
 		BF6B81EE203EAF3900F59317 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BF6B81ED203EAF3900F59317 /* .gitignore */; };
 		BF89304F203D238F00D7693B /* PieceTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF89304E203D238F00D7693B /* PieceTiles.sks */; };
 		BF903FEF203A49980087F961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF903FEE203A49980087F961 /* AppDelegate.swift */; };
@@ -52,12 +55,12 @@
 		BF90401D203A74890087F961 /* BoardTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF90401C203A74890087F961 /* BoardTiles.sks */; };
 		BF97C0FE203A90A500378C7F /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C0FD203A90A500378C7F /* Board.swift */; };
 		BF97C100203A918E00378C7F /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C0FF203A918E00378C7F /* TileType.swift */; };
-		BF97C103203A9C2300378C7F /* Level 13.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF97C102203A9C2300378C7F /* Level 13.lvl */; };
+		BF97C103203A9C2300378C7F /* Level 13 - Rooks 2.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF97C102203A9C2300378C7F /* Level 13 - Rooks 2.lvl */; };
 		BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C104203AA03E00378C7F /* BoardLoader.swift */; };
 		BF97C107203AA12100378C7F /* BoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C106203AA12100378C7F /* BoardError.swift */; };
 		BFC6373D203FA46E00E47224 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC6373C203FA46E00E47224 /* Piece.swift */; };
 		BFC63742203FB0F800E47224 /* Rook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC63741203FB0F800E47224 /* Rook.swift */; };
-		BFC63744203FC2C800E47224 /* Level 3.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BFC63743203FC2C800E47224 /* Level 3.lvl */; };
+		BFC63744203FC2C800E47224 /* Level 3 - Rooks.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BFC63743203FC2C800E47224 /* Level 3 - Rooks.lvl */; };
 		BFE04F8A203D52CF004B1ECE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE04F89203D52CF004B1ECE /* Location.swift */; };
 		BFE04F8C203D57AC004B1ECE /* MovementTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */; };
 /* End PBXBuildFile section */
@@ -73,13 +76,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BF261FCF2053A27A001DC2AA /* Level 7.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level 7.lvl"; sourceTree = "<group>"; };
+		BF261FCF2053A27A001DC2AA /* Level 7 - Knights.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level 7 - Knights.lvl"; sourceTree = "<group>"; };
+		BF261FD12053A48B001DC2AA /* Level 0 - Empty.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level 0 - Empty.lvl"; sourceTree = "<group>"; };
+		BF261FD32053A4F3001DC2AA /* Level 8 - Bishops.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level 8 - Bishops.lvl"; sourceTree = "<group>"; };
+		BF261FD52053A7C5001DC2AA /* bad - two rook jones.test */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bad - two rook jones.test"; sourceTree = "<group>"; };
+		BF261FD72053A907001DC2AA /* logic.test */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = logic.test; sourceTree = "<group>"; };
 		BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePageViewController.swift; sourceTree = "<group>"; };
 		BF26CDED203FFC690002EC30 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		BF26CDEF204006630002EC30 /* RookJones.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RookJones.swift; sourceTree = "<group>"; };
 		BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = "../../temp/Rook Jones App Icon/ios/AppIcon.appiconset"; sourceTree = "<group>"; };
 		BF3BB436204D134F004810A9 /* Knight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Knight.swift; sourceTree = "<group>"; };
-		BF3F5054204D1DAB00B7C639 /* logic.test */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = logic.test; sourceTree = "<group>"; };
 		BF3F5058204D226D00B7C639 /* PieceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTests.swift; sourceTree = "<group>"; };
 		BF3F505A204D22F600B7C639 /* rook.test */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rook.test; sourceTree = "<group>"; };
 		BF3F505C204D243C00B7C639 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
@@ -90,7 +96,7 @@
 		BF539281204E4D9F001374A3 /* bishop.test */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bishop.test; sourceTree = "<group>"; };
 		BF539283204E5068001374A3 /* Queen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queen.swift; sourceTree = "<group>"; };
 		BF539286204E5165001374A3 /* queen.test */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = queen.test; sourceTree = "<group>"; };
-		BF614CDE203FC6750061B5D7 /* Test Level.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Test Level.lvl"; sourceTree = "<group>"; };
+		BF614CDE203FC6750061B5D7 /* Level 1 - Test.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level 1 - Test.lvl"; sourceTree = "<group>"; };
 		BF6B81ED203EAF3900F59317 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BF89304E203D238F00D7693B /* PieceTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PieceTiles.sks; sourceTree = "<group>"; };
 		BF903FEB203A49980087F961 /* RookJones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RookJones.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,12 +115,12 @@
 		BF90401C203A74890087F961 /* BoardTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardTiles.sks; sourceTree = "<group>"; };
 		BF97C0FD203A90A500378C7F /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		BF97C0FF203A918E00378C7F /* TileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileType.swift; sourceTree = "<group>"; };
-		BF97C102203A9C2300378C7F /* Level 13.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level 13.lvl"; sourceTree = "<group>"; };
+		BF97C102203A9C2300378C7F /* Level 13 - Rooks 2.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Level 13 - Rooks 2.lvl"; sourceTree = "<group>"; };
 		BF97C104203AA03E00378C7F /* BoardLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLoader.swift; sourceTree = "<group>"; };
 		BF97C106203AA12100378C7F /* BoardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardError.swift; sourceTree = "<group>"; };
 		BFC6373C203FA46E00E47224 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		BFC63741203FB0F800E47224 /* Rook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rook.swift; sourceTree = "<group>"; };
-		BFC63743203FC2C800E47224 /* Level 3.lvl */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = "Level 3.lvl"; sourceTree = "<group>"; };
+		BFC63743203FC2C800E47224 /* Level 3 - Rooks.lvl */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = "Level 3 - Rooks.lvl"; sourceTree = "<group>"; };
 		BFE04F89203D52CF004B1ECE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MovementTiles.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,11 +146,12 @@
 		BF3BB438204D1617004810A9 /* Test Levels */ = {
 			isa = PBXGroup;
 			children = (
+				BF261FD52053A7C5001DC2AA /* bad - two rook jones.test */,
 				BF539281204E4D9F001374A3 /* bishop.test */,
 				BF3F5069204D2BE900B7C639 /* knight.test */,
+				BF261FD72053A907001DC2AA /* logic.test */,
 				BF539286204E5165001374A3 /* queen.test */,
 				BF3F505A204D22F600B7C639 /* rook.test */,
-				BF3F5054204D1DAB00B7C639 /* logic.test */,
 			);
 			path = "Test Levels";
 			sourceTree = "<group>";
@@ -222,10 +229,12 @@
 		BF97C101203A977C00378C7F /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				BF614CDE203FC6750061B5D7 /* Test Level.lvl */,
-				BFC63743203FC2C800E47224 /* Level 3.lvl */,
-				BF261FCF2053A27A001DC2AA /* Level 7.lvl */,
-				BF97C102203A9C2300378C7F /* Level 13.lvl */,
+				BF614CDE203FC6750061B5D7 /* Level 1 - Test.lvl */,
+				BF261FD12053A48B001DC2AA /* Level 0 - Empty.lvl */,
+				BFC63743203FC2C800E47224 /* Level 3 - Rooks.lvl */,
+				BF261FCF2053A27A001DC2AA /* Level 7 - Knights.lvl */,
+				BF261FD32053A4F3001DC2AA /* Level 8 - Bishops.lvl */,
+				BF97C102203A9C2300378C7F /* Level 13 - Rooks 2.lvl */,
 			);
 			path = Levels;
 			sourceTree = SOURCE_ROOT;
@@ -327,17 +336,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE04F8C203D57AC004B1ECE /* MovementTiles.sks in Resources */,
-				BFC63744203FC2C800E47224 /* Level 3.lvl in Resources */,
+				BFC63744203FC2C800E47224 /* Level 3 - Rooks.lvl in Resources */,
 				BF904015203A66020087F961 /* Herculanum.ttf in Resources */,
 				BF903FFA203A49980087F961 /* Main.storyboard in Resources */,
+				BF261FD22053A48B001DC2AA /* Level 0 - Empty.lvl in Resources */,
 				BF3B3348203FEDB2005CDC5F /* AppIcon.appiconset in Resources */,
 				BF903FF1203A49980087F961 /* GameScene.sks in Resources */,
 				BF6B81EE203EAF3900F59317 /* .gitignore in Resources */,
 				BF903FFC203A49980087F961 /* Assets.xcassets in Resources */,
-				BF614CDF203FC6750061B5D7 /* Test Level.lvl in Resources */,
-				BF261FD02053A27A001DC2AA /* Level 7.lvl in Resources */,
+				BF614CDF203FC6750061B5D7 /* Level 1 - Test.lvl in Resources */,
+				BF261FD02053A27A001DC2AA /* Level 7 - Knights.lvl in Resources */,
 				BF4F534A203E92C300FBD2DD /* Launch Screen.storyboard in Resources */,
-				BF97C103203A9C2300378C7F /* Level 13.lvl in Resources */,
+				BF97C103203A9C2300378C7F /* Level 13 - Rooks 2.lvl in Resources */,
+				BF261FD42053A4F3001DC2AA /* Level 8 - Bishops.lvl in Resources */,
 				BF903FF3203A49980087F961 /* Actions.sks in Resources */,
 				BF89304F203D238F00D7693B /* PieceTiles.sks in Resources */,
 				BF90401D203A74890087F961 /* BoardTiles.sks in Resources */,
@@ -349,9 +360,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF3F505B204D22F600B7C639 /* rook.test in Resources */,
-				BF3F5057204D217900B7C639 /* logic.test in Resources */,
 				BF539282204E4DA0001374A3 /* bishop.test in Resources */,
+				BF261FD62053A7C5001DC2AA /* bad - two rook jones.test in Resources */,
 				BF539287204E5165001374A3 /* queen.test in Resources */,
+				BF261FD82053A907001DC2AA /* logic.test in Resources */,
 				BF3F506A204D2BEA00B7C639 /* knight.test in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
