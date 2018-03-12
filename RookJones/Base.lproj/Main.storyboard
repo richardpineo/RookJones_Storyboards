@@ -19,7 +19,7 @@
         <scene sceneID="7eV-Bq-pNy">
             <objects>
                 <viewController id="tjH-4E-d1M" userLabel="Title Page" customClass="TitlePageViewController" customModule="RookJones" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2CO-E9-ZET" customClass="TitlePageView" customModule="RookJones" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="2CO-E9-ZET">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -161,7 +161,4 @@
     <resources>
         <image name="Title Page" width="800" height="998"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="hJL-pw-Vzq"/>
-    </inferredMetricsTieBreakers>
 </document>
