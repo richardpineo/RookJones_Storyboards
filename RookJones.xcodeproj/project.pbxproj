@@ -92,7 +92,7 @@
 		BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePageViewController.swift; sourceTree = "<group>"; };
 		BF26CDED203FFC690002EC30 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		BF26CDEF204006630002EC30 /* RookJones.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RookJones.swift; sourceTree = "<group>"; };
-		BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = "../../temp/Rook Jones App Icon/ios/AppIcon.appiconset"; sourceTree = "<group>"; };
+		BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = Assets.xcassets/AppIcon.appiconset; sourceTree = "<group>"; };
 		BF3BB436204D134F004810A9 /* Knight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Knight.swift; sourceTree = "<group>"; };
 		BF3F5058204D226D00B7C639 /* PieceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTests.swift; sourceTree = "<group>"; };
 		BF3F505A204D22F600B7C639 /* rook.test */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rook.test; sourceTree = "<group>"; };
