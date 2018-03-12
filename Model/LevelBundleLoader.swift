@@ -17,7 +17,7 @@ class LevelBundleLoader {
     }
     
     private func loadTests(levels: [Level]) {
-        let backgroundColor = UIColor(displayP3Red: 0.1, green: 0.1, blue: 0.1, alpha: 0.5)
+        let backgroundColor = UIColor(red:0.85, green:0.89, blue:1.00, alpha:1.0)
         let demonstrations = LevelBundle(name: "Demonstration Levels", backgroundColor: backgroundColor)
         addLevel(levelBundle: demonstrations, levels: levels, fileName: "Test_00", shortName: "01")
         addLevel(levelBundle: demonstrations, levels: levels, fileName: "Test_01", shortName: "02")

@@ -10,10 +10,11 @@ import UIKit
 
 private let reuseIdentifier = "LevelCell"
 
-class BundleSelectionViewController: UICollectionViewController {
+class SelectLevelViewController: UICollectionViewController {
 
     private var levelBundles: [LevelBundle]?
-    
+    private var selectedLevel: Level?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,22 +32,20 @@ class BundleSelectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        let dest = segue.destination
+        (dest as! GameViewController).level = self.selectedLevel!
     }
-    */
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.levelBundles!.count
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.levelBundles![section].levels.count
@@ -55,14 +54,11 @@ class BundleSelectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! LevelCollectionViewCell
         
+        let levelBundle = self.levelBundles![indexPath.section]
         let level = self.levelBundles![indexPath.section].levels[indexPath.item]
         
         // Configure the cell
-        let red = (Double(indexPath.section)+1.0) / 5.0;
-        let green = (Double(indexPath.item)+1.0) / 20.0;
-        let color = UIColor(displayP3Red: CGFloat(red), green: CGFloat(green), blue: 0.5, alpha: 0.5)
-        cell.backgroundColor = color
-        
+        cell.backgroundColor = levelBundle.backgroundColor.withAlphaComponent(0.5)
         cell.shortName.text = level.shortName
         
         return cell
@@ -83,38 +79,10 @@ class BundleSelectionViewController: UICollectionViewController {
         assert(false, "Unexpected element kind")
     }
     
-    // MARK: UICollectionViewDelegate
-
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // User picked an item, segue to level
-    }
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
+    // If they clicked on a level they can play, then play!
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
+        let level = self.levelBundles?[indexPath.section].levels[indexPath.item]
+        self.selectedLevel = level?.level
+        return self.selectedLevel != nil
     }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }

@@ -64,7 +64,7 @@
 		BF97C103203A9C2300378C7F /* Diamonds_13.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BF97C102203A9C2300378C7F /* Diamonds_13.lvl */; };
 		BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C104203AA03E00378C7F /* BoardLoader.swift */; };
 		BF97C107203AA12100378C7F /* BoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97C106203AA12100378C7F /* BoardError.swift */; };
-		BFB20B8220551951002809D8 /* BundleSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB20B8120551951002809D8 /* BundleSelectionViewController.swift */; };
+		BFB20B8220551951002809D8 /* SelectLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB20B8120551951002809D8 /* SelectLevelViewController.swift */; };
 		BFC6373D203FA46E00E47224 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC6373C203FA46E00E47224 /* Piece.swift */; };
 		BFC63742203FB0F800E47224 /* Rook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC63741203FB0F800E47224 /* Rook.swift */; };
 		BFC63744203FC2C800E47224 /* Diamonds_03.lvl in Resources */ = {isa = PBXBuildFile; fileRef = BFC63743203FC2C800E47224 /* Diamonds_03.lvl */; };
@@ -131,7 +131,7 @@
 		BF97C102203A9C2300378C7F /* Diamonds_13.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Diamonds_13.lvl; sourceTree = "<group>"; };
 		BF97C104203AA03E00378C7F /* BoardLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLoader.swift; sourceTree = "<group>"; };
 		BF97C106203AA12100378C7F /* BoardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardError.swift; sourceTree = "<group>"; };
-		BFB20B8120551951002809D8 /* BundleSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleSelectionViewController.swift; sourceTree = "<group>"; };
+		BFB20B8120551951002809D8 /* SelectLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewController.swift; sourceTree = "<group>"; };
 		BFC6373C203FA46E00E47224 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		BFC63741203FB0F800E47224 /* Rook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rook.swift; sourceTree = "<group>"; };
 		BFC63743203FC2C800E47224 /* Diamonds_03.lvl */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = Diamonds_03.lvl; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 		BFB20B802055175E002809D8 /* Select Level */ = {
 			isa = PBXGroup;
 			children = (
-				BFB20B8120551951002809D8 /* BundleSelectionViewController.swift */,
+				BFB20B8120551951002809D8 /* SelectLevelViewController.swift */,
 				BF750C2B205522B300FFD0F0 /* BundleCollectionReusableView.swift */,
 				BF750C3320562D0A00FFD0F0 /* LevelCollectionViewCell.swift */,
 			);
@@ -435,7 +435,7 @@
 				BF750C3420562D0A00FFD0F0 /* LevelCollectionViewCell.swift in Sources */,
 				BF97C100203A918E00378C7F /* TileType.swift in Sources */,
 				BF26CDE9203FF25C0002EC30 /* TitlePageViewController.swift in Sources */,
-				BFB20B8220551951002809D8 /* BundleSelectionViewController.swift in Sources */,
+				BFB20B8220551951002809D8 /* SelectLevelViewController.swift in Sources */,
 				BF750C2E2055BD6500FFD0F0 /* LevelBundle.swift in Sources */,
 				BF97C105203AA03E00378C7F /* BoardLoader.swift in Sources */,
 				BFC63742203FB0F800E47224 /* Rook.swift in Sources */,
