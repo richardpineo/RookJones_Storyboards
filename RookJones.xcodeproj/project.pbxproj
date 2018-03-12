@@ -176,7 +176,7 @@
 				BF97C101203A977C00378C7F /* Levels */,
 				BF97C0F9203A902200378C7F /* Model */,
 				BF903FED203A49980087F961 /* RookJones */,
-				BF904008203A49980087F961 /* RookJonesTests */,
+				BF904008203A49980087F961 /* Tests */,
 				BF903FEC203A49980087F961 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -193,28 +193,23 @@
 		BF903FED203A49980087F961 /* RookJones */ = {
 			isa = PBXGroup;
 			children = (
-				BFB20B802055175E002809D8 /* Level Selection */,
+				BFE9B91B20563DA300DFE1D8 /* Title Page */,
+				BFB20B802055175E002809D8 /* Select Level */,
 				BF903FEE203A49980087F961 /* AppDelegate.swift */,
-				BF903FF0203A49980087F961 /* GameScene.sks */,
+				BFE9B91A20563D8D00DFE1D8 /* Game */,
 				BF904014203A66020087F961 /* Herculanum.ttf */,
 				BF903FF2203A49980087F961 /* Actions.sks */,
-				BF903FF4203A49980087F961 /* GameScene.swift */,
 				BF6B81ED203EAF3900F59317 /* .gitignore */,
-				BF903FF6203A49980087F961 /* GameViewController.swift */,
 				BF903FF8203A49980087F961 /* Main.storyboard */,
-				BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */,
 				BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */,
 				BF903FFB203A49980087F961 /* Assets.xcassets */,
 				BF3B3347203FEDB2005CDC5F /* AppIcon.appiconset */,
-				BF90401C203A74890087F961 /* BoardTiles.sks */,
-				BF89304E203D238F00D7693B /* PieceTiles.sks */,
 				BF904000203A49980087F961 /* Info.plist */,
-				BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */,
 			);
 			path = RookJones;
 			sourceTree = "<group>";
 		};
-		BF904008203A49980087F961 /* RookJonesTests */ = {
+		BF904008203A49980087F961 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				BF3BB438204D1617004810A9 /* Test Levels */,
@@ -223,6 +218,7 @@
 				BF3F5058204D226D00B7C639 /* PieceTests.swift */,
 				BF3F505C204D243C00B7C639 /* Util.swift */,
 			);
+			name = Tests;
 			path = RookJonesTests;
 			sourceTree = "<group>";
 		};
@@ -258,14 +254,14 @@
 			path = Levels;
 			sourceTree = SOURCE_ROOT;
 		};
-		BFB20B802055175E002809D8 /* Level Selection */ = {
+		BFB20B802055175E002809D8 /* Select Level */ = {
 			isa = PBXGroup;
 			children = (
 				BFB20B8120551951002809D8 /* BundleSelectionViewController.swift */,
 				BF750C2B205522B300FFD0F0 /* BundleCollectionReusableView.swift */,
 				BF750C3320562D0A00FFD0F0 /* LevelCollectionViewCell.swift */,
 			);
-			path = "Level Selection";
+			path = "Select Level";
 			sourceTree = "<group>";
 		};
 		BFC63740203FB0E100E47224 /* Pieces */ = {
@@ -279,6 +275,27 @@
 				BF26CDEF204006630002EC30 /* RookJones.swift */,
 			);
 			path = Pieces;
+			sourceTree = "<group>";
+		};
+		BFE9B91A20563D8D00DFE1D8 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				BF89304E203D238F00D7693B /* PieceTiles.sks */,
+				BF90401C203A74890087F961 /* BoardTiles.sks */,
+				BFE04F8B203D57AC004B1ECE /* MovementTiles.sks */,
+				BF903FF0203A49980087F961 /* GameScene.sks */,
+				BF903FF4203A49980087F961 /* GameScene.swift */,
+				BF903FF6203A49980087F961 /* GameViewController.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		BFE9B91B20563DA300DFE1D8 /* Title Page */ = {
+			isa = PBXGroup;
+			children = (
+				BF26CDE7203FF25C0002EC30 /* TitlePageViewController.swift */,
+			);
+			path = "Title Page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
