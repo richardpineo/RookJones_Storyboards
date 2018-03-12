@@ -173,6 +173,7 @@
 		BF903FE2203A49980087F961 = {
 			isa = PBXGroup;
 			children = (
+				BF6B81ED203EAF3900F59317 /* .gitignore */,
 				BF97C101203A977C00378C7F /* Levels */,
 				BF97C0F9203A902200378C7F /* Model */,
 				BF903FED203A49980087F961 /* RookJones */,
@@ -199,7 +200,6 @@
 				BFE9B91A20563D8D00DFE1D8 /* Game */,
 				BF904014203A66020087F961 /* Herculanum.ttf */,
 				BF903FF2203A49980087F961 /* Actions.sks */,
-				BF6B81ED203EAF3900F59317 /* .gitignore */,
 				BF903FF8203A49980087F961 /* Main.storyboard */,
 				BF4F5349203E92C300FBD2DD /* Launch Screen.storyboard */,
 				BF903FFB203A49980087F961 /* Assets.xcassets */,
