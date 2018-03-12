@@ -9,5 +9,5 @@
 import UIKit
 
 class LevelCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var shortName: UILabel!
+    @IBOutlet var shortName: UILabel!
 }

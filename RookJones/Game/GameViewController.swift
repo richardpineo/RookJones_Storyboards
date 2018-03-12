@@ -6,54 +6,51 @@
 //  Copyright © 2018 Richard Pineo. All rights reserved.
 //
 
-import UIKit
-import SpriteKit
 import GameplayKit
+import SpriteKit
+import UIKit
 
 class GameViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Listen for a notification to tell us to go back to the title screen
-        NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.onBackToTitle), name:NSNotification.Name(rawValue: "BackToTitle"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.onBackToTitle), name: NSNotification.Name(rawValue: "BackToTitle"), object: nil)
+
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
         if let scene = GKScene(fileNamed: "GameScene") {
-            
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
-                
                 // Set the level in the scene
-                sceneNode.initialBoard = self.level?.board
-                
+                sceneNode.initialBoard = level?.board
+
                 // Copy gameplay related content over to the scene
                 sceneNode.entities = scene.entities
                 sceneNode.graphs = scene.graphs
-                
+
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
-                
+
                 // Present the scene
                 if let view = self.view as! SKView? {
                     view.presentScene(sceneNode)
 
                     view.ignoresSiblingOrder = true
-                    
+
                     // view.showsFPS = true
                     // view.showsNodeCount = true
                 }
             }
         }
     }
-    
+
     var level: Level?
-    
-    @objc func onBackToTitle(notification: NSNotification){
-        self.performSegue(withIdentifier: "BackToTitle", sender: self)
+
+    @objc func onBackToTitle(notification _: NSNotification) {
+        performSegue(withIdentifier: "BackToTitle", sender: self)
     }
-    
+
     override var shouldAutorotate: Bool {
         return false
     }

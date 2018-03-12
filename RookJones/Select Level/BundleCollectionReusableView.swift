@@ -9,5 +9,5 @@
 import UIKit
 
 class BundleCollectionReusableView: UICollectionReusableView {
-       @IBOutlet weak var bundleLabel: UILabel!
+    @IBOutlet var bundleLabel: UILabel!
 }

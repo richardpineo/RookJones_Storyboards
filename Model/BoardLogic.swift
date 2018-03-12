@@ -12,47 +12,47 @@ class BoardLogic {
     // Checks to see if the board is valid and throws an error if it isn't.
     static func checkBoardValid(_ board: Board) throws {
         let rookJonesCount = board.tiles.reduce(0, { count, type in
-            count + (type == TileType.RookJones ? 1 : 0);
-        });
-                
-        if( rookJonesCount != 1) {
-            throw BoardError.invalidBoardDefinition("There were \(rookJonesCount) Rook Jones; expected 1" );
+            count + (type == TileType.RookJones ? 1 : 0)
+        })
+
+        if rookJonesCount != 1 {
+            throw BoardError.invalidBoardDefinition("There were \(rookJonesCount) Rook Jones; expected 1")
         }
     }
-    
+
     static func attackedLocations(_ board: Board) -> [Location] {
         var attacked = Set<Location>()
-        
+
         // Walk through all the pieces and add the attacked locations to the set.
         for loc in board.locations() {
-            let tileType = board.getTileType(loc);
-            if( !isAlly(tileType) && tileType != TileType.RookJones ) {
+            let tileType = board.getTileType(loc)
+            if !isAlly(tileType) && tileType != TileType.RookJones {
                 let piece = makePiece(tileType)
-                if( piece != nil ) {
+                if piece != nil {
                     attacked = attacked.union(piece!.getAttackLocations(board: board, pieceLocation: loc))
                 }
             }
         }
         return Array(attacked)
     }
-    
+
     static func hasAlliesOnBoard(_ board: Board) -> Bool {
         return board.locations().contains {
-            return isAlly( board.getTileType( $0 ) )
+            isAlly(board.getTileType($0))
         }
     }
-    
+
     static func isAlly(_ tileType: TileType) -> Bool {
-        switch( tileType ) {
+        switch tileType {
         case TileType.BlackRook:
             return true
         default:
             return false
         }
     }
-    
+
     static func makePiece(_ tileType: TileType) -> Piece? {
-        switch(tileType) {
+        switch tileType {
         case TileType.RookJones:
             return Rook()
         case TileType.BlackRook:
@@ -69,9 +69,9 @@ class BoardLogic {
             return nil
         }
     }
-    
+
     static func doesTileBlock(_ tileType: TileType) -> Bool {
-        switch(tileType) {
+        switch tileType {
         case TileType.Wall:
             return true
         case TileType.WhiteRook:
@@ -89,4 +89,3 @@ class BoardLogic {
         }
     }
 }
-

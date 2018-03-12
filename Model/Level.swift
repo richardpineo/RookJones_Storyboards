@@ -19,6 +19,7 @@ class Level {
         self.name = name
         self.type = type
     }
+
     let board: Board
     let name: String
     let type: LevelType

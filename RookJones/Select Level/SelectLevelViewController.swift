@@ -11,7 +11,6 @@ import UIKit
 private let reuseIdentifier = "LevelCell"
 
 class SelectLevelViewController: UICollectionViewController {
-
     private var levelBundles: [LevelBundle]?
     private var selectedLevel: Level?
 
@@ -22,8 +21,8 @@ class SelectLevelViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         let loader = LevelBundleLoader()
-        self.levelBundles = loader.levelBundles
-        
+        levelBundles = loader.levelBundles
+
         // Do any additional setup after loading the view.
     }
 
@@ -35,54 +34,54 @@ class SelectLevelViewController: UICollectionViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         // Pass the selected object to the new view controller.
         let dest = segue.destination
-        (dest as! GameViewController).level = self.selectedLevel!
+        (dest as! GameViewController).level = selectedLevel!
     }
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.levelBundles!.count
+    override func numberOfSections(in _: UICollectionView) -> Int {
+        return levelBundles!.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.levelBundles![section].levels.count
+    override func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return levelBundles![section].levels.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! LevelCollectionViewCell
-        
-        let levelBundle = self.levelBundles![indexPath.section]
-        let level = self.levelBundles![indexPath.section].levels[indexPath.item]
-        
+
+        let levelBundle = levelBundles![indexPath.section]
+        let level = levelBundles![indexPath.section].levels[indexPath.item]
+
         // Configure the cell
         cell.backgroundColor = levelBundle.backgroundColor.withAlphaComponent(0.5)
         cell.shortName.text = level.shortName
-        
+
         return cell
     }
 
     override func collectionView(_ collectionView: UICollectionView,
-        viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if( kind == UICollectionElementKindSectionHeader ) {
+                                 viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionElementKindSectionHeader {
             let bundleHeader = collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind, withReuseIdentifier: "Bundle", for: indexPath) as! BundleCollectionReusableView
-            
-            let levelBundle = self.levelBundles![indexPath.section]
+
+            let levelBundle = levelBundles![indexPath.section]
             bundleHeader.bundleLabel.text = levelBundle.name
             bundleHeader.backgroundColor = levelBundle.backgroundColor
             return bundleHeader
         }
-        
+
         assert(false, "Unexpected element kind")
     }
-    
+
     // If they clicked on a level they can play, then play!
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        let level = self.levelBundles?[indexPath.section].levels[indexPath.item]
-        self.selectedLevel = level?.level
-        return self.selectedLevel != nil
+    override func collectionView(_: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        let level = levelBundles?[indexPath.section].levels[indexPath.item]
+        selectedLevel = level?.level
+        return selectedLevel != nil
     }
 }
