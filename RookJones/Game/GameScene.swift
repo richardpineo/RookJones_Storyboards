@@ -41,9 +41,11 @@ class GameScene: SKScene {
             keyNode.run(hasKey ? SKAction.unhide() : SKAction.hide())
         }
     }
-
     private var _hasKey: Bool = false
 
+    // The number of treasures that have been picked up.
+    var treasureCount = 0;
+    
     // Scene Nodes
     var rookJones: SKSpriteNode!
 
@@ -277,6 +279,9 @@ class GameScene: SKScene {
             } else if self.board!.getTileType(boardLocation) == TileType.Key {
                 // Pick up the key
                 self.hasKey = true
+                self.changeBoardTile(boardLocation: boardLocation, tileType: TileType.Empty)
+            } else if self.board!.getTileType(boardLocation) == TileType.Treasure {
+                self.treasureCount = self.treasureCount + 1
                 self.changeBoardTile(boardLocation: boardLocation, tileType: TileType.Empty)
             }
 
