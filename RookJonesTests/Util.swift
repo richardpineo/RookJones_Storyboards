@@ -1,10 +1,3 @@
-//
-//  util.swift
-//  RookJonesTests
-//
-//  Created by Richard Pineo on 3/4/18.
-//  Copyright © 2018 Richard Pineo. All rights reserved.
-//
 
 import Foundation
 import XCTest
