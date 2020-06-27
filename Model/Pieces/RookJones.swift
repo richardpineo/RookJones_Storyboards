@@ -1,10 +1,3 @@
-//
-//  Rook.swift
-//  RookJones
-//
-//  Created by Richard Pineo on 2/22/18.
-//  Copyright © 2018 Richard Pineo. All rights reserved.
-//
 
 import Foundation
 
@@ -33,27 +26,33 @@ class RookJones: Piece {
         for movement in movements {
             var loc = pieceLocation.offset(movement)
             while board.isLocationValid(loc) {
-                let tileType = board.getTileType(loc)
-
-                // Allow attacking a locked door, but don't continue to move
-                if hasKey && tileType == TileType.LockedDoor {
-                    attacks.append(loc)
+                var addLoc: Bool
+                let tileType =  board.getTileType(loc)
+                switch tileType
+                {
+                case .LockedDoor:
+                    addLoc = hasKey
                     break
-                }
-
-                // Don't allow the exit if there are any allies left on the board
-                if hasAllies && tileType == TileType.Exit {
+                    
+                case .Exit:
+                    addLoc = hasAllies
                     break
+                    
+                default :
+                    addLoc = true
                 }
 
                 // If this is a blocking tile like a wall, then stop
                 if BoardLogic.doesTileBlock(tileType) {
-                    break
+                    addLoc = false
                 }
 
                 // This one is good, add it in and keep walking.
-                attacks.append(loc)
-                loc = loc.offset(movement)
+                if(addLoc)
+                {
+                    attacks.append(loc)
+                    loc = loc.offset(movement)
+                }
             }
         }
 
